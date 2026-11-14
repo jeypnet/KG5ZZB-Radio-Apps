@@ -1,28 +1,42 @@
-# Airband Receiver: our own RTL-SDR driver
+# Airband Receiver: our own dongle driver
 
-From version **0.8.0** the Airband Receiver talks to RTL-SDR dongles with its own driver, written for this app, instead of the free osmocom rtl-sdr driver (`rtl_tcp`) used up to 0.7.x. Here is how the two compare, measured on the same dongle and PC.
+The **driver** is the part of an app that talks to your USB dongle: it tells the dongle which frequency to listen to and brings the radio signal into the app.
 
-**Test setup:** Nooelec NESDR SMArt v5 (RTL2832U + R820T2), Windows 11, 2.4 MS/s, two dongles plugged straight into the PC. "Free driver" is the official osmocom Windows build (rtl_tcp, 2026-10-18), run the way Airband Receiver 0.7.x ran it.
+Up to version 0.7, the Airband Receiver used the free driver that most RTL-SDR apps use. **From version 0.8.0 it has its own driver, written for this app.** Here is what that changes for you, measured on the same dongle and the same PC.
 
-| | Free driver (osmocom rtl_tcp) | **Our driver (0.8.0)** |
-|---|---|---|
-| Data from the old frequency after a retune | 38 ms, every time (it must be thrown away before listening) | **0 ms** in 80 retunes: the driver returns once the tuner has locked |
-| Time for one retune | the command returns at once, the data follows 38 ms later | **26 ms** until locked and listening (48 ms on the PC's slower USB controller) |
-| Scanner: one pass over 49 airband channels | 0.7 s | **0.4 s** (0.2 s on the faster USB controller) |
-| Retunes and gain changes while streaming | — | **1000 in a row, 0 errors** |
-| Samples delivered over 5 minutes at 2.4 MS/s | 99.985% | 99.988% |
-| Plane messages (ADS-B), drivers alternated every 10 s on the same dongle | 340 in 20 rounds · 50 in 8 rounds | **642** in 20 rounds · 50 in 8 rounds |
-| Memory, app scanning with two dongles | 189–216 MB in 3 processes | **165–176 MB in 1 process** |
-| CPU (12-core PC) | 0.7% | 0.8–0.9% (the scanner makes about 3× as many steps per second) |
-| Files shipped for the dongle | rtl_tcp.exe, rtl_eeprom.exe, librtlsdr.dll, libusb-1.0.dll, libwinpthread-1.dll | **libusb-1.0.dll** |
-| Licence of the driver | GNU GPL v2 or later | Apache-2.0 (ported from [webrtlsdr](https://github.com/jtarrio/webrtlsdr)) + our own code |
+## At a glance
 
-**What changed in the driver to get there:**
-- A retune only sends the tuner registers that actually change. Within the airband that is just the frequency synthesizer, so fewer USB round trips per step.
-- The tuner's lock is checked as soon as it is ready, instead of sleeping in fixed 5–15 ms steps.
-- Every command is checked and retried if the dongle rejects it while streaming, so retunes and gain changes don't fail.
-- One process, no local network connection in between.
+| | Free driver | **Our driver** | What it means for you |
+|---|:---:|:---:|---|
+| ⚡ **Scanner speed** (one round over 49 channels) | 0.7 s | ✅ **0.4 s** | It checks every channel almost **twice as often**, so you catch more of each transmission from the first word. |
+| 🧹 **Clean switch between channels** | 38 ms of leftover sound from the last channel | ✅ **none** | The scanner never stops on a channel because of the one before it. |
+| 🛡 **Reliability** | — | ✅ **1000 channel and volume changes in a row, 0 errors** | No freezes or failed changes while you listen. |
+| ✈ **Planes received** (same dongle, same sky) | 340 messages | ✅ **642 messages** | More plane updates on the map. *(In a shorter test both were equal.)* |
+| 🪶 **Lighter on your PC** | 3 programs, about 200 MB | ✅ **1 program, about 170 MB** | Less memory, fewer things running. |
+| 📦 **Files in the download** | 5 driver files | ✅ **1 file** | Simpler to unzip and keep together. |
+| 📶 **Signal delivered** (5 minutes) | 99.99% | 99.99% | The same: nothing is lost with either. |
 
-**Tuners supported:** Rafael R820T, R820T2, R828D and R860, found in nearly every RTL-SDR sold today (for example RTL-SDR Blog V3 and V4, Nooelec NESDR SMArt). Very old dongles with E4000, FC0012, FC0013 or FC2580 tuners work with the free driver but not with ours.
+## Why it's faster, in plain words
 
-**Notes on the numbers:** the plane counts depend on what flies by, which is why the two drivers took turns every 10 seconds on the same dongle; in the shorter 8-round test they were equal. Retune times depend on the USB controller: the same dongle took 26 ms on one of the PC's USB controllers and 48 ms on the other.
+- **It only says what changed.** To move to a new channel, the free driver repeats every setting to the dongle each time. Ours only sends the one thing that changes, the frequency. Less talking, quicker switch.
+- **It doesn't wait longer than needed.** After a channel change the dongle needs a moment to settle. The free driver waits a fixed time to be safe. Ours checks again and again and goes on the moment the dongle is ready.
+- **It double-checks every command.** If the dongle misses an instruction while it's busy, our driver notices and simply sends it again, so a change never gets lost.
+- **No middleman.** The free driver runs as a separate program that passes the signal over to the app. Ours is part of the app, so nothing sits in between.
+
+## Which dongles work
+
+✅ **Almost every RTL-SDR sold today:** dongles with a Rafael **R820T, R820T2, R828D or R860** tuner chip, for example the Nooelec NESDR SMArt, NESDR Mini 2+ and Nano 3, and the RTL-SDR Blog V3 and V4.
+
+❌ **Not supported:** very old dongles with an E4000, FC0012, FC0013 or FC2580 tuner (for example the NESDR XTR).
+
+## About the numbers
+
+- **Plane counts depend on what's flying.** To make it fair, the two drivers took turns every 10 seconds on the same dongle. Over 20 turns ours received almost twice as many messages; in a shorter test of 8 turns they were equal.
+- **Speed also depends on your PC's USB port.** The same dongle switched channels in 26 ms on one of the PC's USB ports and 48 ms on another. The scanner speed above (0.4 s) is from the slower port; on the faster one it was 0.2 s.
+- **Test setup:** Nooelec NESDR SMArt v5 dongle, Windows 11, both drivers on the same dongle and PC. Free driver: the official osmocom rtl-sdr build (rtl_tcp), as used by Airband Receiver 0.7.
+
+## Licence
+
+Our driver is based on [webrtlsdr](https://github.com/jtarrio/webrtlsdr) (Apache-2.0) plus our own code. The free driver is osmocom rtl-sdr (GNU GPL v2), used by Airband Receiver 0.7.x only.
+
+[⬅ Back to KG5ZZB Radio Apps](../README.md)

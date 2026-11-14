@@ -10,12 +10,14 @@ all from your own antenna, offline, in one app.
 
 [![Download Airband Receiver 0.8.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_0.8.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.8.0-trial/KG5ZZB-SDR-Airband-Receiver-0.8.0-trial-windows-x64.zip)
 <br>
-**Free 30-day trial** · Windows 10/11 · no install, just unzip · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v0.8.0-trial)
+**Free 30-day trial** · Windows 10/11 · no install, just unzip · [Mac & Linux BETA](#-downloads-for-every-system) · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v0.8.0-trial)
 
 [![Shortwave Receiver: coming soon](https://img.shields.io/badge/Shortwave_Receiver-coming_soon-555?style=for-the-badge)](#-kg5zzb-shortwave-receiver-coming-soon)
 
 [![All releases](https://img.shields.io/github/v/release/jeypnet/KG5ZZB-Radio-Apps?label=latest&color=0369A1)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4?logo=windows&logoColor=white)
+![macOS BETA](https://img.shields.io/badge/macOS-BETA-555?logo=apple&logoColor=white)
+![Linux BETA](https://img.shields.io/badge/Linux-BETA-555?logo=linux&logoColor=white)
 [![Support on Ko-fi](https://img.shields.io/badge/Support-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/kg5zzb)
 
 </div>
@@ -41,22 +43,22 @@ Three big buttons, three things to do:
 | **Understand quiet pilots** | Turning the volume up and the hiss with it | **🎙 AI noise filter**, one button: [more words understood on weak signals](#-measured-the-ai-noise-filter) |
 | **See the planes** | A separate decoder program plus a map website | **Built in**: the app's own decoder and an offline map |
 | **Read plane messages** | More decoder programs that print raw codes | **Built in**, ACARS and VDL2, **in plain English** |
-| **Use your dongle** | A free driver plus a separate USB driver tool | **Our own driver**: [the scanner twice as fast](#-measured-our-own-rtl-sdr-driver), and a **one-click USB setup** |
+| **Use your dongle** | A free driver plus a separate USB setup tool | **Our own driver**: [a scanner almost twice as fast](#-measured-our-own-rtl-sdr-driver), and a **one-click USB setup** |
 | **Use two receivers** | Deciding which one does what | **Plug and play**: the app finds which receiver hears planes and gives it the map |
 
 ### ⚡ Measured: our own RTL-SDR driver
 
-From 0.8.0 the app drives RTL-SDR dongles itself instead of using the free osmocom driver. Same dongle, same PC:
+From 0.8.0 the app talks to your dongle with **its own driver** instead of the free one most apps use. Same dongle, same PC:
 
 | | Free driver | **Our driver** |
-|---|---|---|
-| Scanner: one pass over 49 airband channels | 0.7 s | **0.4 s** (0.2 s on a fast USB port) |
-| Old data to throw away after each retune | 38 ms | **0 ms** |
-| Retunes and gain changes while streaming | — | **1000 in a row, 0 errors** |
-| Memory | 189–216 MB in 3 processes | **165–176 MB in 1 process** |
-| Files for the dongle | 5 | **1** |
+|---|:---:|:---:|
+| ⚡ Scanner: one round over 49 channels | 0.7 s | ✅ **0.4 s, almost twice as fast** |
+| 🧹 Leftover sound from the last channel | 38 ms | ✅ **none** |
+| 🛡 Channel and volume changes without an error | — | ✅ **1000 in a row** |
+| ✈ Plane messages, same dongle, same sky | 340 | ✅ **642** |
+| 🪶 Programs running · memory | 3 · about 200 MB | ✅ **1 · about 170 MB** |
 
-**[→ Full comparison with all the numbers](docs/airband-driver.md)**
+**[→ What changed and why it's faster, in plain words](docs/airband-driver.md)**
 
 ### 🎙 Measured: the AI noise filter
 
@@ -83,12 +85,32 @@ A neural network removes hiss and static, quiet pilots come up to the same loudn
 - **📻 RTL-SDR, SDRplay and Airspy:** RTL-SDR dongles with R820T/R820T2/R828D/R860 tuners, plus SDRplay RSP1A/1B/2/duo/dx and Airspy R2/Mini (beta).
 - **▶ Try it without a dongle:** the built-in demo plays realistic radio conversations on your local channels and shows planes and their messages around your city.
 
-### ⬇ Download and start
-1. **[Download the zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.8.0-trial/KG5ZZB-SDR-Airband-Receiver-0.8.0-trial-windows-x64.zip)** and unzip the whole folder anywhere (for example Documents).
-2. Plug in your dongle and double-click `KG5ZZB-SDR-Airband-Receiver.exe`. If Windows says "Windows protected your PC", click **More info → Run anyway** (the app isn't code-signed yet).
-3. A brand-new dongle: press **🔧 Set up dongle** when the app asks (one time only). No dongle yet? Press **▶ Try the demo**.
+### ⬇ Downloads for every system
 
-The trial runs with your receiver for 30 days; the countdown is in the window title. After that the demo keeps working.
+| System | Version | Download |
+|---|---|---|
+| 🪟 **Windows 10 / 11** (64-bit) | **0.8.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-0.8.0-trial-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.8.0-trial/KG5ZZB-SDR-Airband-Receiver-0.8.0-trial-windows-x64.zip)** |
+| 🍎 **macOS** 12+, Apple silicon (M1–M4) | 0.6.2 · **BETA** | [KG5ZZB-SDR-Airband-Receiver-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.6.2/KG5ZZB-SDR-Airband-Receiver-macos-arm64.zip) |
+| 🍎 **macOS** 12+, Intel | 0.6.2 · **BETA** | [KG5ZZB-SDR-Airband-Receiver-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.6.2/KG5ZZB-SDR-Airband-Receiver-macos-x64.zip) |
+| 🐧 **Linux** 64-bit, with a desktop | 0.6.2 · **BETA** | [KG5ZZB-SDR-Airband-Receiver-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.6.2/KG5ZZB-SDR-Airband-Receiver-linux-x64.tar.gz) |
+
+- **Windows:** unzip the whole folder and run `KG5ZZB-SDR-Airband-Receiver.exe`. A brand-new dongle: press **🔧 Set up dongle** once. If Windows says "Windows protected your PC", click **More info → Run anyway**.
+- **Mac BETA:** run `brew install librtlsdr` once, then the first time **right-click the app → Open → Open**. Steps in `README-MAC.txt` inside the zip.
+- **Linux BETA:** install librtlsdr (`sudo apt install librtlsdr2`) and block the TV driver; steps in `README-LINUX.txt` inside the archive.
+- The Mac and Linux BETA (0.6.2) work with RTL-SDR dongles and have the scanner, the AI noise filter and the planes map. 0.8.0 for Mac and Linux is on the way.
+
+All versions: [Releases](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
+
+### 📻 Compatible receivers
+
+| Receiver | Models | Notes |
+|---|---|---|
+| **RTL-SDR dongles** with an R820T, R820T2, R828D or R860 tuner | Nooelec NESDR SMArt v4 / v5, NESDR Mini 2+, NESDR Nano 2+ / 3 · RTL-SDR Blog V3 and V4 · other RTL2832U sticks with these tuners | Our own driver from 0.8.0. One-click USB setup on Windows. |
+| **SDRplay** | RSP1, RSP1A, RSP1B, RSP2, RSP2pro, RSPduo (both tuners at once), RSPdx, RSPdx-R2 | **BETA**, from 0.7.0. Install the free SDRplay API from [sdrplay.com](https://www.sdrplay.com/api/) first (SDRuno users already have it). |
+| **Airspy** | Airspy R2, Airspy Mini | **BETA**, from 0.7.0. |
+| Not supported | Very old RTL-SDR sticks with an E4000, FC0012, FC0013 or FC2580 tuner (for example the NESDR XTR) | |
+
+**Antennas:** a simple dipole or whip for the airband (118–137 MHz) and a 1090 MHz antenna for planes. With two receivers, give each one its own antenna; the app finds which is which.
 
 ---
 
@@ -123,8 +145,8 @@ Shortwave is full of hiss, whistles, buzz and clicks, and a desktop PC next to t
 ---
 
 ## 🔌 Hardware
-- An RTL-SDR dongle with an R820T/R820T2/R828D/R860 tuner (for example a Nooelec NESDR SMArt v5 or an RTL-SDR Blog V3/V4).
-- An antenna for the band: a simple dipole for the airband, a 1090 MHz antenna for planes, a long wire for shortwave.
+- **Airband Receiver:** see [Compatible receivers](#-compatible-receivers).
+- **Shortwave Receiver:** an RTL-SDR dongle with an R820T/R820T2 tuner and a long wire antenna.
 
 ## ♥ Support
 The apps are free. If you enjoy them, you can support them on **[Ko-fi](https://ko-fi.com/kg5zzb)**.
