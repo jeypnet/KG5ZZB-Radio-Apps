@@ -6,7 +6,7 @@
 ![Linux](https://img.shields.io/badge/Linux-test%20version-555?logo=linux&logoColor=white)
 [![Support on Ko-fi](https://img.shields.io/badge/Support-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/kg5zzb)
 
-**Free radio receivers for an inexpensive RTL-SDR USB dongle.** Each one is its own app: download it, plug in the dongle, and listen. Everything runs offline and comes from your own antenna and receiver; no websites or online feeds stand in for it.
+**Radio receivers for an inexpensive RTL-SDR USB dongle.** Each one is its own app: download it, plug in the dongle, and listen. Everything runs offline and comes from your own antenna and receiver; no websites or online feeds stand in for it.
 
 **[⬇ Download the latest versions](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)**: Windows (one `.exe`, nothing to install), plus test versions for Mac and Linux.
 
@@ -14,7 +14,7 @@
 
 ## ✈ KG5ZZB SDR Airband Receiver
 
-**Hear pilots and air traffic control, and see the planes around you on a map.**
+**Hear pilots and air traffic control, see the planes around you on a map, and read the messages they send.** Free 30-day trial: [download 0.7.0 for Windows](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v0.7.0-trial).
 
 ![Listening to the airband, with the AI noise filter on](docs/images/listen.png)
 
@@ -28,9 +28,11 @@
 
 - **🔧 One-click dongle setup.** A brand-new dongle needs a special USB driver; the app installs it with one click and one Windows prompt, then starts by itself.
 - **📻 A real scanner, made simple.** SCAN, HOLD, SKIP, MONITOR and DELAY work like a handheld scanner. Every airport channel within 50 miles of your city is found for you, worldwide (about 11,000 airports in 236 countries, built in).
-- **✈ Planes on a map.** The app's own ADS-B decoder shows callsign, altitude, speed, heading and squawk on an offline map. Click an airport to hear its tower.
+- **✈ Planes on a map.** The app's own ADS-B decoder shows each flight in words ("United 1452"), its airline, the kind of aircraft (airliner, cargo, private jet, helicopter, military), altitude and speed on an offline map. Tick planes to follow them with a dotted path. Click an airport to hear its tower.
+- **✉ Their messages, in plain English.** ACARS and VDL Mode 2 messages from airliners and business jets: take-off and landing times, positions, airport weather, engine readings, each explained in a sentence.
+- **📻 RTL-SDR, SDRplay and Airspy.** RTL-SDR dongles, plus SDRplay RSP1A/1B/2/duo/dx and Airspy R2/Mini (beta).
 - **⚙ Optimize.** It tests every gain setting with your antenna and keeps the best one.
-- **▶ Try it without a dongle.** The demo plays realistic radio conversations on your local channels and flies pretend planes around your city.
+- **▶ Try it without a dongle.** The built-in demo plays realistic radio conversations on your local channels and shows planes and their messages around your city.
 - **💻 Windows, Mac and Linux.**
 
 ![Planes around Chicago in demo mode](docs/images/planes.png)
