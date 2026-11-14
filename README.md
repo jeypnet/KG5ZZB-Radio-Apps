@@ -20,6 +20,8 @@ all from your own antenna, offline, in one app.
 
 </div>
 
+[![The Airband Receiver with two receivers: the scanner on the left, the planes on the right](docs/images/map-voice.png)](docs/images/map-voice.png)
+
 ---
 
 ## ✈ KG5ZZB SDR Airband Receiver
