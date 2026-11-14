@@ -2,7 +2,8 @@ KG5ZZB Radio Apps (KG5ZZB SDR Airband Receiver, KG5ZZB Shortwave Receiver)
 Copyright (C) 2026 KG5ZZB. All rights reserved.
 
 The apps are freeware. You may download, install and use them free of charge, for
-personal and non-commercial use.
+personal and non-commercial use. Exception: the KG5ZZB SDR Airband Receiver from version
+0.7.0 is a free 30-day trial; the LICENSE.txt included in its download applies to it.
 
 You may not, without written permission from the copyright holder:
   - sell, rent or sub-license the apps, or include them in a product or service;

@@ -7,8 +7,11 @@ under its own license. Where a license requires source code to be available, it 
 
 | Component | Used for | License | Source |
 |---|---|---|---|
-| **librtlsdr** (osmocom rtl-sdr), `rtlsdr.dll` | Talking to the RTL-SDR dongle. Shipped unmodified as a separate library. | GNU GPL v2.0 | https://gitea.osmocom.org/sdr/rtl-sdr (version 2.0.x) |
-| **libusb**, `libusb-1.0.dll` | USB access for librtlsdr. Shipped unmodified as a separate library. | GNU LGPL v2.1 | https://github.com/libusb/libusb |
+| **rtl-sdr** (osmocom): `rtl_tcp.exe`, `rtl_eeprom.exe`, `librtlsdr.dll` (the `rtl-sdr` folder) | Talking to the RTL-SDR dongle. Official Windows build, unmodified; `rtl_tcp.exe` runs as a separate program and the app talks to it over a local network connection. (Airband Receiver up to 0.6.2: `rtlsdr.dll` shipped unmodified as a separate library.) | GNU GPL v2.0 or later | https://gitea.osmocom.org/sdr/rtl-sdr |
+| **libusb**, `libusb-1.0.dll` | USB access for the receiver drivers. Shipped unmodified as a separate library. | GNU LGPL v2.1 | https://github.com/libusb/libusb |
+| **libwinpthread** (mingw-w64), `libwinpthread-1.dll` | Threads for rtl-sdr | MIT / ZPL | https://www.mingw-w64.org |
+| **libairspy**, `airspy.dll` (Airband Receiver, `airspy` folder) | Airspy R2 / Mini receivers. Official build, unmodified. | BSD 3-Clause | https://github.com/airspy/airspyone_host |
+| **pthreads-win32**, `pthreadVC2.dll` (Airband Receiver, `airspy` folder) | Threads for libairspy | GNU LGPL v2.1 | https://sourceware.org/pthreads-win32/ |
 | **libwdi** | One-click USB driver setup (Windows) | GNU LGPL v3.0 | https://github.com/pbatard/libwdi |
 | **RNNoise** (Xiph.Org) | Airband AI noise filter | BSD 3-Clause | https://github.com/xiph/rnnoise |
 | **DeepFilterNet3** (H. Schröter et al.), streaming ONNX export by grazder | Shortwave "Voice only" filter | MIT / Apache-2.0 | https://github.com/Rikorose/DeepFilterNet, https://github.com/grazder/DeepFilterNet |
@@ -17,6 +20,9 @@ under its own license. Where a license requires source code to be available, it 
 | **Avalonia** | User interface on Mac and Linux | MIT | https://github.com/AvaloniaUI/Avalonia |
 | **Silk.NET** and **OpenAL Soft** | Sound output on Mac and Linux | MIT; OpenAL Soft: GNU LGPL v2.0 | https://github.com/dotnet/Silk.NET, https://github.com/kcat/openal-soft |
 | **.NET runtime** (Microsoft) | Runs the apps | MIT | https://github.com/dotnet/runtime |
+
+SDRplay receivers are used through the SDRplay API that the user installs from sdrplay.com;
+nothing of SDRplay's is shipped with the apps.
 
 For the GPL and LGPL components above, the complete corresponding source code is available
 at the links given. On request, the author will also provide a copy of the exact source
