@@ -30,6 +30,7 @@
 - **📻 A real scanner, made simple.** SCAN, HOLD, SKIP, MONITOR and DELAY work like a handheld scanner. Every airport channel within 50 miles of your city is found for you, worldwide (about 11,000 airports in 236 countries, built in).
 - **✈ Planes on a map.** The app's own ADS-B decoder shows each flight in words ("United 1452"), its airline, the kind of aircraft (airliner, cargo, private jet, helicopter, military), altitude and speed on an offline map. Tick planes to follow them with a dotted path. Click an airport to hear its tower.
 - **✉ Their messages, in plain English.** ACARS and VDL Mode 2 messages from airliners and business jets: take-off and landing times, positions, airport weather, engine readings, each explained in a sentence.
+- **⚡ Its own RTL-SDR driver (from 0.8.0).** Faster retunes for a quicker scanner, no failed commands while streaming, one process. [How it compares to the free driver](docs/airband-driver.md).
 - **📻 RTL-SDR, SDRplay and Airspy.** RTL-SDR dongles, plus SDRplay RSP1A/1B/2/duo/dx and Airspy R2/Mini (beta).
 - **⚙ Optimize.** It tests every gain setting with your antenna and keeps the best one.
 - **▶ Try it without a dongle.** The built-in demo plays realistic radio conversations on your local channels and shows planes and their messages around your city.
@@ -68,7 +69,7 @@ Shortwave is full of hiss, whistles, buzz and clicks, and a desktop PC next to t
 ---
 
 ## Hardware
-- An RTL-SDR dongle with an R820T/R820T2/R860 tuner (for example a Nooelec NESDR SMArt v5 or an RTL-SDR Blog V3/V4).
+- An RTL-SDR dongle with an R820T/R820T2/R828D/R860 tuner (for example a Nooelec NESDR SMArt v5 or an RTL-SDR Blog V3/V4).
 - An antenna for the band: a simple dipole for the airband, a 1090 MHz antenna for planes, a long wire for shortwave.
 
 ## Support
