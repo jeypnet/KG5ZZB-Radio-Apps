@@ -14,7 +14,7 @@
 
 ## ✈ KG5ZZB SDR Airband Receiver
 
-**Hear pilots and air traffic control, see the planes around you on a map, and read the messages they send.** Free 30-day trial: [download 0.7.0 for Windows](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v0.7.0-trial).
+**Hear pilots and air traffic control, see the planes around you on a map, and read the messages they send.** Free 30-day trial: [download 0.7.1 for Windows](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v0.7.1-trial).
 
 ![Listening to the airband, with the AI noise filter on](docs/images/listen.png)
 
