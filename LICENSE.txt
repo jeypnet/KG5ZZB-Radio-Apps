@@ -1,0 +1,22 @@
+KG5ZZB Radio Apps (KG5ZZB SDR Airband Receiver, KG5ZZB Shortwave Receiver)
+Copyright (C) 2026 KG5ZZB. All rights reserved.
+
+The apps are freeware. You may download, install and use them free of charge, for
+personal and non-commercial use.
+
+You may not, without written permission from the copyright holder:
+  - sell, rent or sub-license the apps, or include them in a product or service;
+  - modify, decompile, disassemble or reverse-engineer the apps, except where the law
+    allows it despite this restriction;
+  - redistribute the apps other than by linking to this page.
+
+The apps include open-source components that remain under their own licenses; see
+THIRD-PARTY-NOTICES.md. Nothing in this license limits your rights under those licenses.
+
+THE APPS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO
+EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM
+THE USE OF THE APPS. Receiving radio signals is subject to the laws of your country; you
+are responsible for using the apps lawfully.
+
+Versions up to and including v0.6.2 of the KG5ZZB SDR Airband Receiver were published
+under the GNU General Public License v3.0, and copies obtained then keep that license.
