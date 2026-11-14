@@ -1,42 +1,94 @@
-# KG5ZZB Radio Apps
+<div align="center">
 
-[![Latest release](https://img.shields.io/github/v/release/jeypnet/KG5ZZB-Radio-Apps?label=download&color=0369A1)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)
+# 📻 KG5ZZB Radio Apps
+
+**Radio receivers for an inexpensive RTL-SDR USB dongle.**<br>
+Hear pilots and air traffic control, see the planes around you on a map and read the messages they send:<br>
+all from your own antenna, offline, in one app.
+
+<br>
+
+[![Download Airband Receiver 0.8.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_0.8.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.8.0-trial/KG5ZZB-SDR-Airband-Receiver-0.8.0-trial-windows-x64.zip)
+<br>
+**Free 30-day trial** · Windows 10/11 · no install, just unzip · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v0.8.0-trial)
+
+[![Shortwave Receiver: coming soon](https://img.shields.io/badge/Shortwave_Receiver-coming_soon-555?style=for-the-badge)](#-kg5zzb-shortwave-receiver-coming-soon)
+
+[![All releases](https://img.shields.io/github/v/release/jeypnet/KG5ZZB-Radio-Apps?label=latest&color=0369A1)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4?logo=windows&logoColor=white)
-![macOS](https://img.shields.io/badge/macOS-test%20version-555?logo=apple&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-test%20version-555?logo=linux&logoColor=white)
 [![Support on Ko-fi](https://img.shields.io/badge/Support-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/kg5zzb)
 
-**Radio receivers for an inexpensive RTL-SDR USB dongle.** Each one is its own app: download it, plug in the dongle, and listen. Everything runs offline and comes from your own antenna and receiver; no websites or online feeds stand in for it.
-
-**[⬇ Download the latest versions](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)**: Windows (one `.exe`, nothing to install), plus test versions for Mac and Linux.
+</div>
 
 ---
 
 ## ✈ KG5ZZB SDR Airband Receiver
 
-**Hear pilots and air traffic control, see the planes around you on a map, and read the messages they send.** Free 30-day trial: [download 0.7.2 for Windows](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v0.7.2-trial).
+Three big buttons, three things to do:
 
-![Listening to the airband, with the AI noise filter on](docs/images/listen.png)
+| 🎧 **LISTEN** | ✈ **MAP** | ✉ **MESSAGES** |
+|:---:|:---:|:---:|
+| [![Listening to the airband](docs/images/listen.png)](docs/images/listen.png) | [![Planes on the map](docs/images/map.png)](docs/images/map.png) | [![Messages in plain words](docs/images/messages.png)](docs/images/messages.png) |
+| A scanner for pilots and air traffic control. Every airport channel within 50 miles is found for you. | Every plane around you with its flight, airline, altitude and speed, on an offline map. | The text messages planes send, each explained in one simple sentence. |
 
-- **🎙 AI noise filter, one button.** A neural network removes hiss and static, quiet pilots come up to the same loudness as the tower, and a limiter keeps it from crackling. Measured with speech recognition counting the words it understood:
+### What you get
 
-  | Signal | Filter off | **Filter on** |
-  |---|---|---|
-  | Weak | 11% of words | **37%: more than 3× as many** |
-  | Medium | 37% | **46%** |
-  | Strong | 41% | 41% |
+| You want to… | Usually that means… | With the Airband Receiver |
+|---|---|---|
+| **Hear the airband** | Looking up frequencies and typing them into a scanner program | **Channels found for you**, worldwide (about 11,000 airports in 236 countries built in) |
+| **Understand quiet pilots** | Turning the volume up and the hiss with it | **🎙 AI noise filter**, one button: [more words understood on weak signals](#-measured-the-ai-noise-filter) |
+| **See the planes** | A separate decoder program plus a map website | **Built in**: the app's own decoder and an offline map |
+| **Read plane messages** | More decoder programs that print raw codes | **Built in**, ACARS and VDL2, **in plain English** |
+| **Use your dongle** | A free driver plus a separate USB driver tool | **Our own driver**: [the scanner twice as fast](#-measured-our-own-rtl-sdr-driver), and a **one-click USB setup** |
+| **Use two receivers** | Deciding which one does what | **Plug and play**: the app finds which receiver hears planes and gives it the map |
 
-- **🔧 One-click dongle setup.** A brand-new dongle needs a special USB driver; the app installs it with one click and one Windows prompt, then starts by itself.
-- **📻 A real scanner, made simple.** SCAN, HOLD, SKIP, MONITOR and DELAY work like a handheld scanner. Every airport channel within 50 miles of your city is found for you, worldwide (about 11,000 airports in 236 countries, built in).
-- **✈ Planes on a map.** The app's own ADS-B decoder shows each flight in words ("United 1452"), its airline, the kind of aircraft (airliner, cargo, private jet, helicopter, military), altitude and speed on an offline map. Tick planes to follow them with a dotted path. Click an airport to hear its tower.
-- **✉ Their messages, in plain English.** ACARS and VDL Mode 2 messages from airliners and business jets: take-off and landing times, positions, airport weather, engine readings, each explained in a sentence.
-- **⚡ Its own RTL-SDR driver (from 0.8.0).** Faster retunes for a quicker scanner, no failed commands while streaming, one process. [How it compares to the free driver](docs/airband-driver.md).
-- **📻 RTL-SDR, SDRplay and Airspy.** RTL-SDR dongles, plus SDRplay RSP1A/1B/2/duo/dx and Airspy R2/Mini (beta).
-- **⚙ Optimize.** It tests every gain setting with your antenna and keeps the best one.
-- **▶ Try it without a dongle.** The built-in demo plays realistic radio conversations on your local channels and shows planes and their messages around your city.
-- **💻 Windows, Mac and Linux.**
+### ⚡ Measured: our own RTL-SDR driver
 
-![Planes around Chicago in demo mode](docs/images/planes.png)
+From 0.8.0 the app drives RTL-SDR dongles itself instead of using the free osmocom driver. Same dongle, same PC:
+
+| | Free driver | **Our driver** |
+|---|---|---|
+| Scanner: one pass over 49 airband channels | 0.7 s | **0.4 s** (0.2 s on a fast USB port) |
+| Old data to throw away after each retune | 38 ms | **0 ms** |
+| Retunes and gain changes while streaming | — | **1000 in a row, 0 errors** |
+| Memory | 189–216 MB in 3 processes | **165–176 MB in 1 process** |
+| Files for the dongle | 5 | **1** |
+
+**[→ Full comparison with all the numbers](docs/airband-driver.md)**
+
+### 🎙 Measured: the AI noise filter
+
+A neural network removes hiss and static, quiet pilots come up to the same loudness as the tower, and a limiter keeps it from crackling. Measured with speech recognition counting the words it understood:
+
+| Signal | Filter off | **Filter on** |
+|---|---|---|
+| Weak | 11% of words | **37%: more than 3× as many** |
+| Medium | 37% | **46%** |
+| Strong | 41% | 41% |
+
+### Two receivers? See and hear at once
+
+| ✈🎧 **MAP + VOICE** | ✈✉ **MAP + MESSAGES** |
+|:---:|:---:|
+| [![Scanner and map side by side](docs/images/map-voice.png)](docs/images/map-voice.png) | [![Map and messages side by side](docs/images/map-messages.png)](docs/images/map-messages.png) |
+| The scanner on the left, the planes on the right. | The planes and their messages, both live. |
+
+### Everything else
+- **📻 A real scanner, made simple:** SCAN, HOLD, SKIP, MONITOR and DELAY work like a handheld scanner.
+- **✈ Planes your way:** airline badges, a colour and an icon for each kind of aircraft (airliner, private jet, small plane, helicopter, military), radar-style labels, dotted paths for the planes you follow.
+- **🕒 Nothing gets lost:** planes and messages stay for 30 minutes when you switch screens.
+- **⚙ Optimize:** tests every gain setting with your antenna and keeps the best one.
+- **📻 RTL-SDR, SDRplay and Airspy:** RTL-SDR dongles with R820T/R820T2/R828D/R860 tuners, plus SDRplay RSP1A/1B/2/duo/dx and Airspy R2/Mini (beta).
+- **▶ Try it without a dongle:** the built-in demo plays realistic radio conversations on your local channels and shows planes and their messages around your city.
+
+### ⬇ Download and start
+1. **[Download the zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.8.0-trial/KG5ZZB-SDR-Airband-Receiver-0.8.0-trial-windows-x64.zip)** and unzip the whole folder anywhere (for example Documents).
+2. Plug in your dongle and double-click `KG5ZZB-SDR-Airband-Receiver.exe`. If Windows says "Windows protected your PC", click **More info → Run anyway** (the app isn't code-signed yet).
+3. A brand-new dongle: press **🔧 Set up dongle** when the app asks (one time only). No dongle yet? Press **▶ Try the demo**.
+
+The trial runs with your receiver for 30 days; the countdown is in the window title. After that the demo keeps working.
+
+---
 
 ## 📻 KG5ZZB Shortwave Receiver (coming soon)
 
@@ -68,14 +120,14 @@ Shortwave is full of hiss, whistles, buzz and clicks, and a desktop PC next to t
 
 ---
 
-## Hardware
+## 🔌 Hardware
 - An RTL-SDR dongle with an R820T/R820T2/R828D/R860 tuner (for example a Nooelec NESDR SMArt v5 or an RTL-SDR Blog V3/V4).
 - An antenna for the band: a simple dipole for the airband, a 1090 MHz antenna for planes, a long wire for shortwave.
 
-## Support
+## ♥ Support
 The apps are free. If you enjoy them, you can support them on **[Ko-fi](https://ko-fi.com/kg5zzb)**.
 
-## License
+## 📄 License
 The apps are free to download and use. The source code is not public. See [LICENSE.txt](LICENSE.txt) and [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for the open-source components they include.
 
 *73 de KG5ZZB*
