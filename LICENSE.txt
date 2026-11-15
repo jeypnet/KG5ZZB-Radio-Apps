@@ -3,8 +3,8 @@ Copyright (C) 2026 KG5ZZB. All rights reserved.
 
 The apps are freeware. You may download, install and use them free of charge, for
 personal and non-commercial use. Exception: the KG5ZZB SDR Airband Receiver from version
-0.7.0 has its own free license, included in its download: every feature for the first 30
-days, then the free basic version; the full version is a one-time purchase.
+0.7.0 has its own free license, included in its download: free to use, with every extra
+switched on for the first 30 days.
 
 You may not, without written permission from the copyright holder:
   - sell, rent or sub-license the apps, or include them in a product or service;

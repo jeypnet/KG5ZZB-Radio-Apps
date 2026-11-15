@@ -12,7 +12,7 @@ all from your own antenna, offline, in one app.
 [![macOS](https://img.shields.io/badge/⬇_macOS-Apple_silicon_·_Intel-333?style=for-the-badge&logo=apple)](#-downloads-for-every-system)
 [![Linux](https://img.shields.io/badge/⬇_Linux-64--bit-333?style=for-the-badge&logo=linux&logoColor=white)](#-downloads-for-every-system)
 <br>
-**Free** · every feature for 30 days, then free forever (basic) or $12 once for everything · Windows · macOS · Linux · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.1)
+**Free download** · Windows · macOS · Linux · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.1)
 
 [![Shortwave Receiver: coming soon](https://img.shields.io/badge/Shortwave_Receiver-coming_soon-555?style=for-the-badge)](#-kg5zzb-shortwave-receiver-coming-soon)
 
@@ -25,7 +25,7 @@ all from your own antenna, offline, in one app.
 
 </div>
 
-[![KG5ZZB SDR Airband Receiver 1.0: favourites and busy channels, airport buttons, live plane map, plane messages in plain words, in four languages](docs/images/airband-v1-hero.png)](docs/images/airband-v1-hero.png)
+[![KG5ZZB SDR Airband Receiver 1.0: favourites and busy channels, airport buttons, live plane map, plane messages in plain words, in four languages](docs/images/airband-v1-hero-free.png)](docs/images/airband-v1-hero-free.png)
 
 ---
 
@@ -111,7 +111,7 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 - **Windows:** unzip the whole folder and run `KG5ZZB-SDR-Airband-Receiver.exe`. A brand-new dongle: press **🔧 Set up dongle** once. If Windows says "Windows protected your PC", click **More info → Run anyway**.
 - **Mac:** run `brew install libusb` once, then the first time **right-click the app → Open → Open**. Steps in `README-MAC.txt` inside the zip.
 - **Linux:** copy the included udev rule once so your user can open the dongle; steps in `README-LINUX.txt` inside the archive.
-- **Free to use.** Every feature is unlocked for the first 30 days. After that the app stays free as the basic version: the scanner and the plane map keep working with your receiver. CLEAR VOICE, HOLD, MONITOR, DELAY, plane messages and full plane details are in the full version: $12, paid once, with the ★ Full version button in the app. No subscription.
+- **Free download.** The scanner and the plane map are free, for good. For the first 30 days every extra is switched on too; after that, CLEAR VOICE, HOLD, MONITOR, DELAY and plane messages are an optional upgrade inside the app.
 
 All versions: [Releases](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
 
