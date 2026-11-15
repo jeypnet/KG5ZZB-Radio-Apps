@@ -8,11 +8,11 @@ all from your own antenna, offline, in one app.
 
 <br>
 
-[![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-windows-x64.zip)
+[![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.1/KG5ZZB-SDR-Airband-Receiver-1.0.1-windows-x64.zip)
 [![macOS](https://img.shields.io/badge/⬇_macOS-Apple_silicon_·_Intel-333?style=for-the-badge&logo=apple)](#-downloads-for-every-system)
 [![Linux](https://img.shields.io/badge/⬇_Linux-64--bit-333?style=for-the-badge&logo=linux&logoColor=white)](#-downloads-for-every-system)
 <br>
-**Free 30-day trial** · Windows · macOS · Linux · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.0)
+**Free** · every feature for 30 days, then free forever (basic) or $12 once for everything · Windows · macOS · Linux · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.1)
 
 [![Shortwave Receiver: coming soon](https://img.shields.io/badge/Shortwave_Receiver-coming_soon-555?style=for-the-badge)](#-kg5zzb-shortwave-receiver-coming-soon)
 
@@ -36,7 +36,7 @@ Three big buttons, three things to do:
 | 🎧 **LISTEN** | ✈ **MAP** | ✉ **MESSAGES** |
 |:---:|:---:|:---:|
 | [![Listening to the airband](docs/images/listen.png)](docs/images/listen.png) | [![Planes on the map](docs/images/map.png)](docs/images/map.png) | [![Messages in plain words](docs/images/messages.png)](docs/images/messages.png) |
-| A scanner for pilots and air traffic control. Every airport channel within 50 miles is found for you. | Every plane around you with its flight, airline, altitude and speed, on an offline map. | The text messages planes send, each explained in one simple sentence. |
+| A scanner for pilots and air traffic control. The channels of the airports within 50 miles are found for you. | Every plane around you with its flight, airline, altitude and speed, on an offline map. | The text messages planes send, each explained in one simple sentence. |
 
 ### What you get
 
@@ -103,15 +103,15 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 
 | System | Version | Download |
 |---|---|---|
-| 🪟 **Windows 10 / 11** (64-bit) | **1.0.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-windows-x64.zip)** |
-| 🍎 **macOS** 12+, Apple silicon (M1–M4) | **1.0.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-macos-arm64.zip)** |
-| 🍎 **macOS** 12+, Intel | **1.0.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-macos-x64.zip)** |
-| 🐧 **Linux** 64-bit, with a desktop | **1.0.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-linux-x64.tar.gz)** |
+| 🪟 **Windows 10 / 11** (64-bit) | **1.0.1** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.1-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.1/KG5ZZB-SDR-Airband-Receiver-1.0.1-windows-x64.zip)** |
+| 🍎 **macOS** 12+, Apple silicon (M1–M4) | **1.0.0** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.1/KG5ZZB-SDR-Airband-Receiver-1.0.0-macos-arm64.zip)** |
+| 🍎 **macOS** 12+, Intel | **1.0.0** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.1/KG5ZZB-SDR-Airband-Receiver-1.0.0-macos-x64.zip)** |
+| 🐧 **Linux** 64-bit, with a desktop | **1.0.0** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.1/KG5ZZB-SDR-Airband-Receiver-1.0.0-linux-x64.tar.gz)** |
 
 - **Windows:** unzip the whole folder and run `KG5ZZB-SDR-Airband-Receiver.exe`. A brand-new dongle: press **🔧 Set up dongle** once. If Windows says "Windows protected your PC", click **More info → Run anyway**.
 - **Mac:** run `brew install libusb` once, then the first time **right-click the app → Open → Open**. Steps in `README-MAC.txt` inside the zip.
 - **Linux:** copy the included udev rule once so your user can open the dongle; steps in `README-LINUX.txt` inside the archive.
-- After 30 days the app becomes the free basic version (scanner and map keep working); the full version is a one-time $12 with the ★ Full version button in the app.
+- **Free to use.** Every feature is unlocked for the first 30 days. After that the app stays free as the basic version: the scanner and the plane map keep working with your receiver. CLEAR VOICE, HOLD, MONITOR, DELAY, plane messages and full plane details are in the full version: $12, paid once, with the ★ Full version button in the app. No subscription.
 
 All versions: [Releases](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
 
@@ -163,7 +163,7 @@ Shortwave is full of hiss, whistles, buzz and clicks, and a desktop PC next to t
 - **Shortwave Receiver:** an RTL-SDR dongle with an R820T/R820T2 tuner and a long wire antenna.
 
 ## ♥ Support
-The apps are free. If you enjoy them, you can support them on **[Ko-fi](https://ko-fi.com/kg5zzb)**.
+The apps are free to use. If you enjoy them, you can support them on **[Ko-fi](https://ko-fi.com/kg5zzb)**.
 
 ## 📄 License
 The apps are free to download and use. The source code is not public. See [LICENSE.txt](LICENSE.txt) and [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for the open-source components they include.
