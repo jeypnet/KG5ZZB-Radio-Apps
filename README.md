@@ -40,7 +40,7 @@ Three big buttons, three things to do:
 | You want to… | Usually that means… | With the Airband Receiver |
 |---|---|---|
 | **Hear the airband** | Looking up frequencies and typing them into a scanner program | **Channels found for you**, worldwide (about 11,000 airports in 236 countries built in) |
-| **Understand quiet pilots** | Turning the volume up and the hiss with it | **🎙 Voice filter**, one button: [louder, crisper voices with less hiss](#-the-voice-filter) |
+| **Understand quiet pilots** | Turning the volume up and the hiss with it | **🎙 CLEAR VOICE**, one button: [louder, crisper voices with less hiss](#-clear-voice) |
 | **See the planes** | A separate decoder program plus a map website | **Built in**: the app's own decoder and an offline map |
 | **Read plane messages** | More decoder programs that print raw codes | **Built in**, ACARS and VDL2, **in plain English** |
 | **Use your dongle** | A free driver plus a separate USB setup tool | **Our own driver**: [a scanner almost twice as fast](#-measured-our-own-rtl-sdr-driver), and a **one-click USB setup** |
@@ -60,7 +60,7 @@ From 0.8.0 the app talks to your dongle with **its own driver** instead of the f
 
 **[→ What changed and why it's faster, in plain words](docs/airband-driver.md)**
 
-### 🎙 The voice filter
+### 🎙 CLEAR VOICE
 
 One button makes pilots easier to understand. It was tuned by ear on real pilot recordings:
 
