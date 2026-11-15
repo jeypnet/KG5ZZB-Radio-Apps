@@ -14,6 +14,8 @@ all from your own antenna, offline, in one app.
 <br>
 **Free download** · Windows · macOS · Linux · Android phones, tablets & TV · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.2)
 
+✅ **Works with RTL-SDR Blog V2, V3 and V4, Nooelec NESDR** and every RTL-SDR with an R820T, R820T2, R828D or R860 tuner · [all receivers](#-compatible-receivers)
+
 [![Shortwave Receiver: coming soon](https://img.shields.io/badge/Shortwave_Receiver-coming_soon-555?style=for-the-badge)](#-kg5zzb-shortwave-receiver-coming-soon)
 
 [![All releases](https://img.shields.io/github/v/release/jeypnet/KG5ZZB-Radio-Apps?label=latest&color=0369A1)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)
@@ -51,17 +53,20 @@ Three big buttons, three things to do:
 
 ### ⚡ Measured: our own RTL-SDR driver
 
-From 0.8.0 the app talks to your dongle with **its own driver** instead of the free one most apps use. Same dongle, same PC:
+The app talks to your dongle with **its own driver**, written for scanning, instead of the standard free driver most RTL-SDR programs share. Same dongle, same PC:
 
-| | Free driver | **Our driver** |
+| | Standard free driver | ✅ **Our driver** |
 |---|:---:|:---:|
-| ⚡ Scanner: one round over 49 channels | 0.7 s | ✅ **0.4 s, almost twice as fast** |
-| 🧹 Leftover sound from the last channel | 38 ms | ✅ **none** |
-| 🛡 Channel and volume changes without an error | — | ✅ **1000 in a row** |
-| ✈ Plane messages, same dongle, same sky | 340 | ✅ **642** |
-| 🪶 Programs running · memory | 3 · about 200 MB | ✅ **1 · about 170 MB** |
+| ⚡ **Scanner**: one round over 49 channels | 0.7 s | **0.4 s, almost twice as fast** |
+| 🔁 **Channel switch** | repeats every tuner setting | **only what changed: 26 ms** |
+| 🧹 **Leftover sound from the last channel** | 38 ms | **none** |
+| 🛡 **Channel and volume changes without an error** | — | **1000 in a row** |
+| 🔗 **How the signal reaches the app** | through a helper program | **directly** |
+| 🪶 **Programs running · memory** | 3 · about 200 MB | **1 · about 170 MB** |
 
-**[→ What changed and why it's faster, in plain words](docs/airband-driver.md)**
+Works with the **RTL-SDR Blog V2, V3 and V4** (with the V4's own tuner setup built in), **Nooelec NESDR** and every dongle with an R820T, R820T2, R828D or R860 tuner.
+
+**[→ See the full comparison and how it works](docs/airband-driver.md)**
 
 ### 🎙 CLEAR VOICE
 
@@ -121,7 +126,7 @@ All versions: [Releases](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
 
 | Receiver | Models | Notes |
 |---|---|---|
-| **RTL-SDR dongles** with an R820T, R820T2, R828D or R860 tuner | Nooelec NESDR SMArt v4 / v5, NESDR Mini 2+, NESDR Nano 2+ / 3 · RTL-SDR Blog V3 and V4 · other RTL2832U sticks with these tuners | Our own driver from 0.8.0. One-click USB setup on Windows. |
+| **RTL-SDR dongles** with an R820T, R820T2, R828D or R860 tuner | Nooelec NESDR SMArt v4 / v5, NESDR Mini 2+, NESDR Nano 2+ / 3 · RTL-SDR Blog V2, V3 and V4 · other RTL2832U sticks with these tuners | Our own driver from 0.8.0. One-click USB setup on Windows. |
 | **SDRplay** | RSP1, RSP1A, RSP1B, RSP2, RSP2pro, RSPduo (both tuners at once), RSPdx, RSPdx-R2 | **BETA**, from 0.7.0. Install the free SDRplay API from [sdrplay.com](https://www.sdrplay.com/api/) first (SDRuno users already have it). |
 | **Airspy** | Airspy R2, Airspy Mini | **BETA**, from 0.7.0. |
 | Not supported | Very old RTL-SDR sticks with an E4000, FC0012, FC0013 or FC2580 tuner (for example the NESDR XTR) | |
