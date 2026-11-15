@@ -12,7 +12,7 @@ all from your own antenna, offline, in one app.
 [![macOS](https://img.shields.io/badge/⬇_macOS-Apple_silicon_·_Intel-333?style=for-the-badge&logo=apple)](#-downloads-for-every-system)
 [![Linux](https://img.shields.io/badge/⬇_Linux-64--bit-333?style=for-the-badge&logo=linux&logoColor=white)](#-downloads-for-every-system)
 <br>
-**Free download** · Windows · macOS · Linux · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.2)
+**Free download** · Windows · macOS · Linux · Android · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.2)
 
 [![Shortwave Receiver: coming soon](https://img.shields.io/badge/Shortwave_Receiver-coming_soon-555?style=for-the-badge)](#-kg5zzb-shortwave-receiver-coming-soon)
 
@@ -107,10 +107,12 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 | 🍎 **macOS** 12+, Apple silicon (M1–M4) | **1.0.2** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.2-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.2/KG5ZZB-SDR-Airband-Receiver-1.0.2-macos-arm64.zip)** |
 | 🍎 **macOS** 12+, Intel | **1.0.2** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.2-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.2/KG5ZZB-SDR-Airband-Receiver-1.0.2-macos-x64.zip)** |
 | 🐧 **Linux** 64-bit, with a desktop | **1.0.2** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.2-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.2/KG5ZZB-SDR-Airband-Receiver-1.0.2-linux-x64.tar.gz)** |
+| 📱 **Android** 8.0+, phone or tablet with USB OTG | **1.0.2** · free | **[KG5ZZB-Airband-Android-1.0.2.apk](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-android-v1.0.2/KG5ZZB-Airband-Android-1.0.2.apk)** |
 
 - **Windows:** unzip the whole folder and run `KG5ZZB-SDR-Airband-Receiver.exe`. A brand-new dongle: press **🔧 Set up dongle** once. If Windows says "Windows protected your PC", click **More info → Run anyway**.
 - **Mac:** run `brew install libusb` once, then the first time **right-click the app → Open → Open**. Steps in `README-MAC.txt` inside the zip.
 - **Linux:** copy the included udev rule once so your user can open the dongle; steps in `README-LINUX.txt` inside the archive.
+- **Android:** open the release page on your phone, tap the `.apk`, allow your browser to install unknown apps, then install. Plug the dongle in with a USB OTG adapter. Needs an RTL-SDR with an R820T, R820T2, R828D or R860 tuner; SDRplay and Airspy work on the desktop versions only. No internet permission: the app collects nothing. Listen and the plane map are free; the full version is coming soon. [Android release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-android-v1.0.2)
 - **Free download.** The scanner and the plane map are free, for good. For the first 30 days every extra is switched on too; after that, CLEAR VOICE, HOLD, MONITOR, DELAY and plane messages are an optional upgrade inside the app.
 
 All versions: [Releases](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
