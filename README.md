@@ -40,7 +40,7 @@ Three big buttons, three things to do:
 | You want to… | Usually that means… | With the Airband Receiver |
 |---|---|---|
 | **Hear the airband** | Looking up frequencies and typing them into a scanner program | **Channels found for you**, worldwide (about 11,000 airports in 236 countries built in) |
-| **Understand quiet pilots** | Turning the volume up and the hiss with it | **🎙 AI noise filter**, one button: [more words understood on weak signals](#-measured-the-ai-noise-filter) |
+| **Understand quiet pilots** | Turning the volume up and the hiss with it | **🎙 Voice filter**, one button: [louder, crisper voices with less hiss](#-the-voice-filter) |
 | **See the planes** | A separate decoder program plus a map website | **Built in**: the app's own decoder and an offline map |
 | **Read plane messages** | More decoder programs that print raw codes | **Built in**, ACARS and VDL2, **in plain English** |
 | **Use your dongle** | A free driver plus a separate USB setup tool | **Our own driver**: [a scanner almost twice as fast](#-measured-our-own-rtl-sdr-driver), and a **one-click USB setup** |
@@ -60,15 +60,14 @@ From 0.8.0 the app talks to your dongle with **its own driver** instead of the f
 
 **[→ What changed and why it's faster, in plain words](docs/airband-driver.md)**
 
-### 🎙 Measured: the AI noise filter
+### 🎙 The voice filter
 
-A neural network removes hiss and static, quiet pilots come up to the same loudness as the tower, and a limiter keeps it from crackling. Measured with speech recognition counting the words it understood:
+One button makes pilots easier to understand. It was tuned by ear on real pilot recordings:
 
-| Signal | Filter off | **Filter on** |
-|---|---|---|
-| Weak | 11% of words | **37%: more than 3× as many** |
-| Medium | 37% | **46%** |
-| Strong | 41% | 41% |
+- 🔊 **Louder:** quiet pilots come up to the same loudness as the tower, and soft words come up close to loud ones.
+- ✨ **Crisper:** the consonants in call signs and numbers stand out.
+- 🌫 **Less hiss:** the hiss is turned down gently, without the robotic sound strong noise removal leaves behind.
+- 🛡 **Never crackles:** a limiter keeps loud voices clean, and an empty channel's hiss is never turned up.
 
 ### Two receivers? See and hear at once
 
