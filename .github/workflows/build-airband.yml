@@ -1,0 +1,134 @@
+name: Build Airband Receiver (macOS, Linux)
+
+# Started by hand only. Builds the free download edition for macOS and Linux, starts each
+# app in demo mode on a real macOS / Linux machine and saves a screenshot.
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Source branch or tag"
+        default: main
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_NOLOGO: 1
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+jobs:
+  linux:
+    name: Linux app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: jeypnet/KG5ZZB-SDR-Airband-Receiver-source
+          ref: ${{ inputs.ref }}
+          ssh-key: ${{ secrets.AIRBAND_SOURCE_KEY }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+      - name: Publish
+        run: >
+          dotnet publish src/KG5ZZB.AirbandReceiver.Desktop -c Release -r linux-x64 --self-contained true
+          -p:DebugType=none -p:Edition=Trial -o out/linux
+      - name: Noise filter library
+        run: bash native/rnnoise/build.sh out/linux/librnnoise.so
+      - name: Smoke test (libusb found, demo runs, screenshot)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb imagemagick libusb-1.0-0
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1400x900x24 &
+          sleep 3
+          (timeout 20 out/linux/KG5ZZB-SDR-Airband-Receiver || true)
+          LOG=$(find "$HOME" -path "*KG5ZZB-SDR-Airband-Receiver/log.txt" 2>/dev/null | head -1)
+          grep -q "No receiver found" "$LOG"
+          ! grep -q "library is missing" "$LOG"
+          out/linux/KG5ZZB-SDR-Airband-Receiver --demo &
+          APP=$!
+          sleep 25
+          import -window root linux-demo.png
+          kill $APP || true
+          grep -q "Demo dongle" "$LOG"
+          ! grep -q "RNNoise library not found" "$LOG"
+      - name: Package
+        run: |
+          mkdir -p pkg/KG5ZZB-SDR-Airband-Receiver-linux-x64
+          cp -r out/linux/. pkg/KG5ZZB-SDR-Airband-Receiver-linux-x64/
+          cp packaging/linux/README-LINUX.txt packaging/linux/60-kg5zzb-rtlsdr.rules packaging/icon-256.png LICENSE THIRD-PARTY-NOTICES.txt pkg/KG5ZZB-SDR-Airband-Receiver-linux-x64/
+          chmod +x pkg/KG5ZZB-SDR-Airband-Receiver-linux-x64/KG5ZZB-SDR-Airband-Receiver
+          tar -C pkg -czf KG5ZZB-SDR-Airband-Receiver-linux-x64.tar.gz KG5ZZB-SDR-Airband-Receiver-linux-x64
+      - uses: actions/upload-artifact@v7
+        with:
+          name: linux-x64
+          retention-days: 1
+          path: |
+            KG5ZZB-SDR-Airband-Receiver-linux-x64.tar.gz
+            linux-demo.png
+
+  macos:
+    name: macOS app
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: jeypnet/KG5ZZB-SDR-Airband-Receiver-source
+          ref: ${{ inputs.ref }}
+          ssh-key: ${{ secrets.AIRBAND_SOURCE_KEY }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+      - name: Publish and make the .app bundles
+        run: |
+          VERSION=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' src/KG5ZZB.AirbandReceiver.Desktop/KG5ZZB.AirbandReceiver.Desktop.csproj)
+          mkdir -p icon.iconset
+          for s in 16 32 64 128 256 512; do sips -z $s $s packaging/macos/icon-512.png --out icon.iconset/icon_${s}x${s}.png >/dev/null; done
+          cp icon.iconset/icon_32x32.png icon.iconset/icon_16x16@2x.png
+          cp icon.iconset/icon_64x64.png icon.iconset/icon_32x32@2x.png
+          cp icon.iconset/icon_256x256.png icon.iconset/icon_128x128@2x.png
+          cp icon.iconset/icon_512x512.png icon.iconset/icon_256x256@2x.png
+          rm icon.iconset/icon_64x64.png
+          iconutil -c icns icon.iconset -o icon.icns
+          for RID in osx-arm64 osx-x64; do
+            dotnet publish src/KG5ZZB.AirbandReceiver.Desktop -c Release -r $RID --self-contained true \
+              -p:DebugType=none -p:Edition=Trial -o out/$RID
+            ARCHFLAG=$([ "$RID" = osx-arm64 ] && echo arm64 || echo x86_64)
+            bash native/rnnoise/build.sh out/$RID/librnnoise.dylib -arch $ARCHFLAG
+            APP="pkg/$RID/KG5ZZB SDR Airband Receiver.app"
+            mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
+            cp -R out/$RID/. "$APP/Contents/MacOS/"
+            chmod +x "$APP/Contents/MacOS/KG5ZZB-SDR-Airband-Receiver"
+            sed "s/VERSION/$VERSION/g" packaging/macos/Info.plist > "$APP/Contents/Info.plist"
+            cp icon.icns "$APP/Contents/Resources/icon.icns"
+            codesign --force --deep -s - "$APP"
+            cp packaging/macos/README-MAC.txt LICENSE THIRD-PARTY-NOTICES.txt pkg/$RID/
+            ARCH=${RID#osx-}
+            (cd pkg/$RID && ditto -c -k --sequesterRsrc . "../../KG5ZZB-SDR-Airband-Receiver-macos-$ARCH.zip")
+          done
+      - name: Smoke test (libusb found, demo runs, screenshot)
+        run: |
+          brew install libusb
+          BIN="pkg/osx-arm64/KG5ZZB SDR Airband Receiver.app/Contents/MacOS/KG5ZZB-SDR-Airband-Receiver"
+          "$BIN" &
+          APP=$!; sleep 20; kill $APP || true
+          LOG=$(find "$HOME" -path "*KG5ZZB-SDR-Airband-Receiver/log.txt" 2>/dev/null | head -1)
+          grep -q "No receiver found" "$LOG"
+          ! grep -q "library is missing" "$LOG"
+          "$BIN" --demo &
+          APP=$!; sleep 25
+          screencapture -x macos-demo.png || true
+          kill $APP || true
+          grep -q "Demo dongle" "$LOG"
+          ! grep -q "RNNoise library not found" "$LOG"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: macos
+          retention-days: 1
+          path: |
+            KG5ZZB-SDR-Airband-Receiver-macos-arm64.zip
+            KG5ZZB-SDR-Airband-Receiver-macos-x64.zip
+            macos-demo.png
