@@ -8,21 +8,24 @@ all from your own antenna, offline, in one app.
 
 <br>
 
-[![Download Airband Receiver 0.9.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_0.9.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.9.0-trial/KG5ZZB-SDR-Airband-Receiver-0.9.0-trial-windows-x64.zip)
+[![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-windows-x64.zip)
+[![macOS](https://img.shields.io/badge/⬇_macOS-Apple_silicon_·_Intel-333?style=for-the-badge&logo=apple)](#-downloads-for-every-system)
+[![Linux](https://img.shields.io/badge/⬇_Linux-64--bit-333?style=for-the-badge&logo=linux&logoColor=white)](#-downloads-for-every-system)
 <br>
-**Free 30-day trial** · Windows 10/11 · no install, just unzip · [Mac & Linux BETA](#-downloads-for-every-system) · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v0.9.0-trial)
+**Free 30-day trial** · Windows · macOS · Linux · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.0)
 
 [![Shortwave Receiver: coming soon](https://img.shields.io/badge/Shortwave_Receiver-coming_soon-555?style=for-the-badge)](#-kg5zzb-shortwave-receiver-coming-soon)
 
 [![All releases](https://img.shields.io/github/v/release/jeypnet/KG5ZZB-Radio-Apps?label=latest&color=0369A1)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4?logo=windows&logoColor=white)
-![macOS BETA](https://img.shields.io/badge/macOS-BETA-555?logo=apple&logoColor=white)
-![Linux BETA](https://img.shields.io/badge/Linux-BETA-555?logo=linux&logoColor=white)
+![macOS](https://img.shields.io/badge/macOS-12%2B-000000?logo=apple&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-64--bit-FCC624?logo=linux&logoColor=black)
+![Languages](https://img.shields.io/badge/🌐-English_·_Español_·_中文_·_日本語-0369A1)
 [![Support on Ko-fi](https://img.shields.io/badge/Support-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/kg5zzb)
 
 </div>
 
-[![The Airband Receiver with two receivers: the scanner on the left, the planes on the right](docs/images/map-voice.png)](docs/images/map-voice.png)
+[![KG5ZZB SDR Airband Receiver 1.0: favourites and busy channels, airport buttons, live plane map, plane messages in plain words, in four languages](docs/images/airband-v1-hero.png)](docs/images/airband-v1-hero.png)
 
 ---
 
@@ -76,6 +79,18 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 | [![Scanner and map side by side](docs/images/map-voice.png)](docs/images/map-voice.png) | [![Map and messages side by side](docs/images/map-messages.png)](docs/images/map-messages.png) |
 | The scanner on the left, the planes on the right. | The planes and their messages, both live. |
 
+### New in 1.0
+- **🌐 Four languages:** English, Español, 中文 and 日本語. The app picks your computer's language; switch any time with the 🌐 button.
+
+  | Español | 中文 | 日本語 |
+  |:---:|:---:|:---:|
+  | [![Español](docs/images/listen-es.png)](docs/images/listen-es.png) | [![中文](docs/images/listen-zh.png)](docs/images/listen-zh.png) | [![日本語](docs/images/listen-ja.png)](docs/images/listen-ja.png) |
+- **★ Favourites and BUSY channels:** the app learns which channels talk the most, keeps them right after your favourites and gives them priority when two talk at once.
+- **Airport buttons:** scan or skip a whole airport, Approach & Center, or the small airports (off by default) in one click.
+- **Complete US channel lists** from FAA data, "Scan ★ starred only", optional recorded weather, and a list that never jumps while you use it.
+- **Your exact spot:** your town, coordinates from Google Maps, or your grid locator.
+- **macOS and Linux** get everything the Windows app has.
+
 ### Everything else
 - **📻 A real scanner, made simple:** SCAN, HOLD, SKIP, MONITOR and DELAY work like a handheld scanner.
 - **✈ Planes your way:** airline badges, a colour and an icon for each kind of aircraft (airliner, private jet, small plane, helicopter, military), radar-style labels, dotted paths for the planes you follow.
@@ -88,15 +103,15 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 
 | System | Version | Download |
 |---|---|---|
-| 🪟 **Windows 10 / 11** (64-bit) | **0.9.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-0.9.0-trial-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.9.0-trial/KG5ZZB-SDR-Airband-Receiver-0.9.0-trial-windows-x64.zip)** |
-| 🍎 **macOS** 12+, Apple silicon (M1–M4) | 0.6.2 · **BETA** | [KG5ZZB-SDR-Airband-Receiver-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.6.2/KG5ZZB-SDR-Airband-Receiver-macos-arm64.zip) |
-| 🍎 **macOS** 12+, Intel | 0.6.2 · **BETA** | [KG5ZZB-SDR-Airband-Receiver-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.6.2/KG5ZZB-SDR-Airband-Receiver-macos-x64.zip) |
-| 🐧 **Linux** 64-bit, with a desktop | 0.6.2 · **BETA** | [KG5ZZB-SDR-Airband-Receiver-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v0.6.2/KG5ZZB-SDR-Airband-Receiver-linux-x64.tar.gz) |
+| 🪟 **Windows 10 / 11** (64-bit) | **1.0.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-windows-x64.zip)** |
+| 🍎 **macOS** 12+, Apple silicon (M1–M4) | **1.0.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-macos-arm64.zip)** |
+| 🍎 **macOS** 12+, Intel | **1.0.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-macos-x64.zip)** |
+| 🐧 **Linux** 64-bit, with a desktop | **1.0.0** · free 30-day trial | **[KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.0/KG5ZZB-SDR-Airband-Receiver-1.0.0-trial-linux-x64.tar.gz)** |
 
 - **Windows:** unzip the whole folder and run `KG5ZZB-SDR-Airband-Receiver.exe`. A brand-new dongle: press **🔧 Set up dongle** once. If Windows says "Windows protected your PC", click **More info → Run anyway**.
-- **Mac BETA:** run `brew install librtlsdr` once, then the first time **right-click the app → Open → Open**. Steps in `README-MAC.txt` inside the zip.
-- **Linux BETA:** install librtlsdr (`sudo apt install librtlsdr2`) and block the TV driver; steps in `README-LINUX.txt` inside the archive.
-- The Mac and Linux BETA (0.6.2) work with RTL-SDR dongles and have the scanner, the AI noise filter and the planes map. 0.9.0 for Mac and Linux is on the way.
+- **Mac:** run `brew install libusb` once, then the first time **right-click the app → Open → Open**. Steps in `README-MAC.txt` inside the zip.
+- **Linux:** copy the included udev rule once so your user can open the dongle; steps in `README-LINUX.txt` inside the archive.
+- After 30 days the app becomes the free basic version (scanner and map keep working); the full version is a one-time $12 with the ★ Full version button in the app.
 
 All versions: [Releases](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
 
