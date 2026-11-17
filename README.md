@@ -8,11 +8,11 @@ all from your own antenna, offline, in one app.
 
 <br>
 
-[![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.3/KG5ZZB-SDR-Airband-Receiver-1.0.3-windows-x64.zip)
+[![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-windows-x64.zip)
 [![macOS](https://img.shields.io/badge/⬇_macOS-Apple_silicon_·_Intel-333?style=for-the-badge&logo=apple)](#-downloads-for-every-system)
 [![Linux](https://img.shields.io/badge/⬇_Linux-64--bit-333?style=for-the-badge&logo=linux&logoColor=white)](#-downloads-for-every-system)
 <br>
-**Free download** · Windows · macOS · Linux · Android phones, tablets & TV · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.3)
+**Free download** · Windows · macOS · Linux · Android phones, tablets & TV · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.4)
 
 ✅ **Works with RTL-SDR Blog V2, V3 and V4, Nooelec NESDR** and every RTL-SDR with an R820T, R820T2, R828D or R860 tuner · [all receivers](#-compatible-receivers)
 
@@ -108,10 +108,10 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 
 | System | Version | Download |
 |---|---|---|
-| 🪟 **Windows 10 / 11** (64-bit) | **1.0.3** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.3-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.3/KG5ZZB-SDR-Airband-Receiver-1.0.3-windows-x64.zip)** |
-| 🍎 **macOS** 12+, Apple silicon (M1–M4) | **1.0.3** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.3-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.3/KG5ZZB-SDR-Airband-Receiver-1.0.3-macos-arm64.zip)** |
-| 🍎 **macOS** 12+, Intel | **1.0.3** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.3-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.3/KG5ZZB-SDR-Airband-Receiver-1.0.3-macos-x64.zip)** |
-| 🐧 **Linux** 64-bit, with a desktop | **1.0.3** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.3-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.3/KG5ZZB-SDR-Airband-Receiver-1.0.3-linux-x64.tar.gz)** |
+| 🪟 **Windows 10 / 11** (64-bit) | **1.0.4** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.4-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-windows-x64.zip)** |
+| 🍎 **macOS** 12+, Apple silicon (M1–M4) | **1.0.4** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.4-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-macos-arm64.zip)** |
+| 🍎 **macOS** 12+, Intel | **1.0.4** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.4-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-macos-x64.zip)** |
+| 🐧 **Linux** 64-bit, with a desktop | **1.0.4** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.4-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-linux-x64.tar.gz)** |
 | 📱📺 **Android** 8.0+: phone, tablet or Android TV, with USB | **1.0.3** · free | **[KG5ZZB-Airband-Android-1.0.3.apk](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-android-v1.0.3/KG5ZZB-Airband-Android-1.0.3.apk)** |
 
 - **Windows:** unzip the whole folder and run `KG5ZZB-SDR-Airband-Receiver.exe`. A brand-new dongle: press **🔧 Set up dongle** once. If Windows says "Windows protected your PC", click **More info → Run anyway**.
