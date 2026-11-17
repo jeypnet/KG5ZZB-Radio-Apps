@@ -1,7 +1,8 @@
 name: Build Airband Receiver (macOS, Linux)
 
-# Started by hand only. Builds the free download edition for macOS and Linux, starts each
-# app in demo mode on a real macOS / Linux machine and saves a screenshot.
+# Started by hand only. Builds the free download edition for macOS and Linux, signs and
+# notarizes the macOS app, starts each app in demo mode on a real macOS / Linux machine
+# and saves a screenshot.
 on:
   workflow_dispatch:
     inputs:
@@ -104,11 +105,61 @@ jobs:
             chmod +x "$APP/Contents/MacOS/KG5ZZB-SDR-Airband-Receiver"
             sed "s/VERSION/$VERSION/g" packaging/macos/Info.plist > "$APP/Contents/Info.plist"
             cp icon.icns "$APP/Contents/Resources/icon.icns"
-            codesign --force --deep -s - "$APP"
             cp packaging/macos/README-MAC.txt LICENSE THIRD-PARTY-NOTICES.txt pkg/$RID/
+          done
+      - name: Sign with Developer ID
+        env:
+          CERT_P12: ${{ secrets.MACOS_CERT_P12 }}
+          CERT_PASSWORD: ${{ secrets.MACOS_CERT_PASSWORD }}
+        run: |
+          KC="$RUNNER_TEMP/signing.keychain-db"; KCPASS=$(uuidgen)
+          echo "$CERT_P12" | base64 --decode > "$RUNNER_TEMP/cert.p12"
+          security create-keychain -p "$KCPASS" "$KC"
+          security set-keychain-settings -lut 21600 "$KC"
+          security unlock-keychain -p "$KCPASS" "$KC"
+          security import "$RUNNER_TEMP/cert.p12" -P "$CERT_PASSWORD" -A -f pkcs12 -k "$KC"
+          security set-key-partition-list -S apple-tool:,apple: -k "$KCPASS" "$KC" >/dev/null
+          security list-keychains -d user -s "$KC" $(security list-keychains -d user | tr -d '"')
+          rm "$RUNNER_TEMP/cert.p12"
+          IDENTITY=$(security find-identity -v -p codesigning "$KC" | sed -n 's/.*"\(Developer ID Application:.*\)"/\1/p' | head -1)
+          cat > "$RUNNER_TEMP/app.entitlements" <<'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>com.apple.security.cs.allow-jit</key><true/>
+            <key>com.apple.security.cs.allow-unsigned-executable-memory</key><true/>
+            <key>com.apple.security.cs.disable-library-validation</key><true/>
+          </dict></plist>
+          EOF
+          for RID in osx-arm64 osx-x64; do
+            APP="pkg/$RID/KG5ZZB SDR Airband Receiver.app"
+            MAIN="$APP/Contents/MacOS/KG5ZZB-SDR-Airband-Receiver"
+            find "$APP/Contents/MacOS" -type f ! -path "$MAIN" -print0 |
+              xargs -0 codesign --force --timestamp --options runtime -s "$IDENTITY"
+            codesign --force --timestamp --options runtime --entitlements "$RUNNER_TEMP/app.entitlements" -s "$IDENTITY" "$APP"
+            codesign --verify --deep --strict --verbose=2 "$APP"
+          done
+      - name: Notarize with Apple
+        env:
+          NOTARY_KEY_P8: ${{ secrets.NOTARY_KEY_P8 }}
+          NOTARY_KEY_ID: ${{ secrets.NOTARY_KEY_ID }}
+          NOTARY_ISSUER_ID: ${{ secrets.NOTARY_ISSUER_ID }}
+        run: |
+          printf '%s' "$NOTARY_KEY_P8" > "$RUNNER_TEMP/notary.p8"
+          for RID in osx-arm64 osx-x64; do
+            APP="pkg/$RID/KG5ZZB SDR Airband Receiver.app"
+            ditto -c -k --keepParent "$APP" "$RUNNER_TEMP/notarize-$RID.zip"
+            xcrun notarytool submit "$RUNNER_TEMP/notarize-$RID.zip" --key "$RUNNER_TEMP/notary.p8" \
+              --key-id "$NOTARY_KEY_ID" --issuer "$NOTARY_ISSUER_ID" --wait --timeout 3h --output-format json | tee "$RUNNER_TEMP/notary-$RID.json"
+            read ID STATUS < <(python3 -c "import json,sys;d=json.load(open(sys.argv[1]));print(d['id'],d['status'])" "$RUNNER_TEMP/notary-$RID.json")
+            xcrun notarytool log "$ID" --key "$RUNNER_TEMP/notary.p8" --key-id "$NOTARY_KEY_ID" --issuer "$NOTARY_ISSUER_ID"
+            [ "$STATUS" = "Accepted" ]
+            xcrun stapler staple "$APP"
+            spctl --assess --type execute --verbose=2 "$APP"
             ARCH=${RID#osx-}
             (cd pkg/$RID && ditto -c -k --sequesterRsrc . "../../KG5ZZB-SDR-Airband-Receiver-macos-$ARCH.zip")
           done
+          rm "$RUNNER_TEMP/notary.p8"
       - name: Smoke test (libusb found, demo runs, screenshot)
         run: |
           brew install libusb
