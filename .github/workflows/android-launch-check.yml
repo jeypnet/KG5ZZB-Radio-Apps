@@ -1,16 +1,16 @@
 name: Android launch check
 
-# Started by hand only. Installs a published Android APK on the Android emulator, starts it
-# and saves the crash log (logcat) and a screenshot.
+# Started by hand only. Installs an Android APK on the Android emulator, starts it, opens the
+# demo and every screen, and saves screenshots and the log (logcat). Fails if the app stops.
 on:
   workflow_dispatch:
     inputs:
       url:
-        description: "URL of the APK to test"
+        description: "URL of the APK to test (or a release tag, for a draft release in this repository)"
         required: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   launch:
@@ -27,8 +27,46 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
       - name: Download the APK
-        run: curl -sSL -o app.apk "${{ inputs.url }}"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SRC: ${{ inputs.url }}
+        run: |
+          case "$SRC" in
+            http*) curl -sSL -o app.apk "$SRC" ;;
+            *) gh release download "$SRC" -R "$GITHUB_REPOSITORY" --pattern "*.apk" --output app.apk ;;
+          esac
+          ls -l app.apk
+      - name: Test helper
+        run: |
+          cat > tap.py <<'EOF'
+          import re, subprocess, sys
+          subprocess.run(["adb", "shell", "uiautomator", "dump", "/sdcard/ui.xml"], capture_output=True)
+          xml = subprocess.run(["adb", "shell", "cat", "/sdcard/ui.xml"], capture_output=True, text=True).stdout
+          for text in sys.argv[1:]:
+              for m in re.finditer(r'<node [^>]*?text="([^"]*)"[^>]*?bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', xml):
+                  if m.group(1).strip().lower() == text.lower():
+                      x = (int(m.group(2)) + int(m.group(4))) // 2
+                      y = (int(m.group(3)) + int(m.group(5))) // 2
+                      subprocess.run(["adb", "shell", "input", "tap", str(x), str(y)])
+                      print(f"tapped '{text}' at {x},{y}")
+                      sys.exit(0)
+          print(f"NOT FOUND: {sys.argv[1:]}")
+          print(re.findall(r'text="([^"]+)"', xml))
+          sys.exit(1)
+          EOF
+          cat > check.sh <<'EOF'
+          #!/bin/bash
+          # $1 = step name. Screenshot, then fail if the app is gone.
+          sleep 2
+          adb exec-out screencap -p > "shot-$API-$1.png"
+          if adb shell pidof com.kg5zzb.airband >/dev/null; then echo "OK: app running after $1"; else
+            echo "FAIL: app stopped after $1"; adb logcat -d > "logcat-$API.txt"
+            grep -A30 "FATAL EXCEPTION" "logcat-$API.txt" | head -60; exit 1; fi
+          EOF
+          chmod +x check.sh
       - uses: reactivecircus/android-emulator-runner@v2
+        env:
+          API: ${{ matrix.api }}
         with:
           api-level: ${{ matrix.api }}
           arch: x86_64
@@ -36,18 +74,36 @@ jobs:
           disable-animations: true
           script: |
             adb install -r app.apk
+            adb shell dumpsys package com.kg5zzb.airband | grep -m1 versionName
             adb logcat -c
             adb shell monkey -p com.kg5zzb.airband -c android.intent.category.LAUNCHER 1
-            sleep 25
-            adb exec-out screencap -p > screen-${{ matrix.api }}.png
-            adb logcat -d > logcat-${{ matrix.api }}.txt
-            grep -n -A40 -E "FATAL EXCEPTION|AndroidRuntime|monodroid|DOTNET" logcat-${{ matrix.api }}.txt | head -150 || true
-            adb shell pidof com.kg5zzb.airband && echo "APP RUNNING" || echo "APP NOT RUNNING"
+            sleep 15
+            ./check.sh 1-start
+            python3 tap.py "Allow" "While using the app" "OK" || true
+            python3 tap.py "Try the demo"
+            sleep 30
+            ./check.sh 2-demo-listen
+            python3 tap.py "Map"
+            sleep 15
+            ./check.sh 3-map
+            python3 tap.py "Messages"
+            sleep 15
+            ./check.sh 4-messages
+            python3 tap.py "Listen"
+            sleep 10
+            ./check.sh 5-listen-again
+            adb shell input keyevent KEYCODE_HOME
+            sleep 3
+            adb shell monkey -p com.kg5zzb.airband -c android.intent.category.LAUNCHER 1
+            sleep 10
+            ./check.sh 6-reopen
+            adb logcat -d > logcat-$API.txt
+            ! grep -q "FATAL EXCEPTION" logcat-$API.txt
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: android-${{ matrix.api }}
           retention-days: 1
           path: |
-            screen-*.png
+            shot-*.png
             logcat-*.txt
