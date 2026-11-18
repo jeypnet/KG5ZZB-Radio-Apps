@@ -85,7 +85,7 @@ jobs:
             python3 tap.py "Or type a city" || true
             adb shell input text Chicago
             sleep 3
-            python3 tap.py "~Chicago"
+            python3 tap.py "Chicago, Illinois, United States"
             sleep 5
             ./check.sh 1b-city-chosen
             python3 tap.py "Try the demo"
