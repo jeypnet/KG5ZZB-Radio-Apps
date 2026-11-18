@@ -115,10 +115,23 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 | 📱📺 **Android** 8.0+: phone, tablet or Android TV, with USB | **1.0.5** · free | **[KG5ZZB-Airband-Android-1.0.5.apk](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-android-v1.0.5/KG5ZZB-Airband-Android-1.0.5.apk)** |
 
 - **Windows:** unzip the whole folder and run `KG5ZZB-SDR-Airband-Receiver.exe`. A brand-new dongle: press **🔧 Set up dongle** once. If Windows says "Windows protected your PC", click **More info → Run anyway**.
-- **Mac:** run `brew install libusb` once, then the first time **right-click the app → Open → Open**. Steps in `README-MAC.txt` inside the zip.
+- **Mac:** run `brew install libusb` once, move the app to Applications and open it. The app is signed and notarized by Apple; macOS asks once to confirm it was downloaded from the internet: click **Open**.
 - **Linux:** copy the included udev rule once so your user can open the dongle; steps in `README-LINUX.txt` inside the archive.
-- **Android:** one app for phones, tablets (sideways layout) and Android TV / Google TV (works with the remote, on the TV home screen). On a phone or tablet, open the release page, tap the `.apk`, allow your browser to install unknown apps, then install, and plug the dongle in with a USB OTG adapter. On a TV, install the `.apk` with a downloader app or from a USB stick and plug the dongle into the TV's USB port. Needs an RTL-SDR with an R820T, R820T2, R828D or R860 tuner; SDRplay and Airspy work on the desktop versions only. No internet permission: the app collects nothing. Every feature for the first 30 days; after that Listen and the plane map stay free. [Android release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-android-v1.0.5)
+- **Android:** one app for phones, tablets (sideways layout) and Android TV / Google TV. Needs an RTL-SDR with an R820T, R820T2, R828D or R860 tuner and a USB OTG adapter; SDRplay and Airspy work on the desktop versions only. Every feature for the first 30 days; after that Listen and the plane map stay free. No internet permission: the app collects nothing. Install steps below.
 - **Free download.** The scanner and the plane map are free, for good. For the first 30 days every extra is switched on too; after that, CLEAR VOICE, HOLD, MONITOR, DELAY and plane messages are an optional upgrade inside the app.
+
+#### 📱 Installing on Android (about one minute, only the first time)
+Apps downloaded from a website instead of the Google Play Store need a few extra taps. This is Android's normal safety step for every such app.
+
+1. On the phone or tablet, tap **[KG5ZZB-Airband-Android-1.0.5.apk](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-android-v1.0.5/KG5ZZB-Airband-Android-1.0.5.apk)**. If the browser warns that the file might be harmful, tap **Download anyway**.
+2. When the download finishes, tap it (in the notification, or open **Files → Downloads** and tap the file).
+3. Android says your browser isn't allowed to install apps. Tap **Settings**, switch on **Allow from this source**, then tap the back arrow and tap **Install**.
+4. Google Play Protect may ask to scan the app. Tap **Scan app** and wait a few seconds (or tap **More details → Install anyway**). Then tap **Open**.
+5. In the app, tap **Use my location** (or **Search for a city**). No dongle yet? Tap **Try the demo**.
+6. Plug in the dongle with the USB OTG adapter. When Android asks whether **KG5ZZB Airband** may use the USB device, tap **OK**.
+
+Updating later: tap the new `.apk` and **Install**; steps 3 and 4 are usually not needed again and your settings stay.
+**Android TV / Google TV:** install a downloader app from the TV's app store (or copy the `.apk` to a USB stick), open the `.apk` with it, allow that app to install unknown apps when the TV asks, then start **KG5ZZB Airband** from the home screen and plug the dongle into the TV's USB port.
 
 All versions: [Releases](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
 
