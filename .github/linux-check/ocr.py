@@ -3,7 +3,7 @@
   ocr.py tap [--last] [--word N] [--below PX] "text"
                                           click the text (--last: the lowest match on screen;
                                           --word N: the Nth word of the text, from 1;
-                                          --below PX: that many pixels below the text)
+                                          --below PX / --dx PX: that many pixels below / right of it)
   ocr.py has "text" ...                   fail unless every text is on screen
   ocr.py absent "text" ...                fail if any text is on screen
 """
@@ -59,7 +59,7 @@ def dump(lines):
 def main():
     args = sys.argv[1:]
     cmd = args.pop(0)
-    last, word, below = False, None, 0
+    last, word, below, dx = False, None, 0, 0
     while args and args[0].startswith("--"):
         if args[0] == "--last":
             last = True; args.pop(0)
@@ -67,6 +67,8 @@ def main():
             word = int(args[1]); del args[:2]
         elif args[0] == "--below":
             below = int(args[1]); del args[:2]
+        elif args[0] == "--dx":
+            dx = int(args[1]); del args[:2]
     for attempt in range(3):
         lines = read_screen()
         if cmd == "tap":
@@ -77,7 +79,7 @@ def main():
                     hit = hit[word - 1:word]
                 x0 = min(w[1] for w in hit); x1 = max(w[1] + w[3] for w in hit)
                 y0 = min(w[2] for w in hit); y1 = max(w[2] + w[4] for w in hit)
-                x, y = (x0 + x1) // 2, (y0 + y1) // 2 + below
+                x, y = (x0 + x1) // 2 + dx, (y0 + y1) // 2 + below
                 subprocess.run(["xdotool", "mousemove", str(x), str(y), "click", "1"], check=True)
                 print(f"clicked '{args[0]}' at {x},{y}")
                 return 0

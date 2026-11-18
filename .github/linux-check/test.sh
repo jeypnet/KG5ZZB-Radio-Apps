@@ -97,11 +97,15 @@ alive demo-listen
 python3 "$HERE/peak.py" "$OUT/demo-sound.raw" 0.05
 
 echo "== 5. Every screen"
-ocr tap --word 1 "MAP MESSAGES"; sleep 12; alive map
-ocr tap "MESSAGES"; sleep 30; alive messages
+# The screen buttons are icons left of "Stop demo": headphones = listen, plane = map, envelope = messages.
+listen_btn() { ocr tap --dx -230 "Stop demo"; }
+map_btn() { ocr tap --dx -180 "Stop demo"; }
+messages_btn() { ocr tap --dx -131 "Stop demo"; }
+map_btn; sleep 15; alive map
+messages_btn; sleep 30; alive messages
 ocr absent "in the full version"
-ocr tap "MAP VOICE"; sleep 12; alive map-and-voice
-ocr tap "LISTEN"; sleep 8; alive listen-again
+listen_btn; sleep 8; alive listen-again
+ocr has "HOLD"
 quit
 
 echo "== 6. Second start: remembers the city, no questions"
@@ -120,7 +124,7 @@ ocr tap "Try the demo"
 record 30 basic-demo-sound
 alive basic-demo
 python3 "$HERE/peak.py" "$OUT/basic-demo-sound.raw" 0.05
-ocr tap "MESSAGES"; sleep 15; alive basic-messages
+messages_btn; sleep 15; alive basic-messages
 ocr has "in the full version"
 quit
 unset KG5ZZB_FORCE_BASIC
