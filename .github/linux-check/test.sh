@@ -22,6 +22,7 @@ echo "::endgroup::"
 
 # A brand-new user: empty home folder, the download unpacked in Downloads.
 HOME=$(mktemp -d); export HOME
+unset XDG_CONFIG_HOME XDG_DATA_HOME XDG_CACHE_HOME XDG_STATE_HOME
 mkdir -p "$HOME/Downloads"; cd "$HOME/Downloads"
 tar -xzf "$TAR"
 DIR=KG5ZZB-SDR-Airband-Receiver-linux-x64
