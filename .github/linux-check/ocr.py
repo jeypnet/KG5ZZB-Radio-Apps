@@ -1,7 +1,9 @@
 """Reads the screen with OCR (tesseract) and clicks or checks text, the way a person would.
 
-  ocr.py tap [--last] [--word N] "text"   click the text (--last: the lowest match on screen;
-                                          --word N: click the Nth word of the text, from 1)
+  ocr.py tap [--last] [--word N] [--below PX] "text"
+                                          click the text (--last: the lowest match on screen;
+                                          --word N: the Nth word of the text, from 1;
+                                          --below PX: that many pixels below the text)
   ocr.py has "text" ...                   fail unless every text is on screen
   ocr.py absent "text" ...                fail if any text is on screen
 """
@@ -26,7 +28,7 @@ def read_screen():
             f = row.split("\t")
             if len(f) < 12 or f[0] == "level" or not f[11].strip():
                 continue
-            k = (f[2], f[3], f[4], f[5])  # page/block/paragraph/line
+            k = (f[1], f[2], f[3], f[4])  # page/block/paragraph/line
             if k != key and cur:
                 lines.append(cur)
                 cur = []
@@ -57,12 +59,14 @@ def dump(lines):
 def main():
     args = sys.argv[1:]
     cmd = args.pop(0)
-    last, word = False, None
+    last, word, below = False, None, 0
     while args and args[0].startswith("--"):
         if args[0] == "--last":
             last = True; args.pop(0)
         elif args[0] == "--word":
             word = int(args[1]); del args[:2]
+        elif args[0] == "--below":
+            below = int(args[1]); del args[:2]
     for attempt in range(3):
         lines = read_screen()
         if cmd == "tap":
@@ -73,7 +77,7 @@ def main():
                     hit = hit[word - 1:word]
                 x0 = min(w[1] for w in hit); x1 = max(w[1] + w[3] for w in hit)
                 y0 = min(w[2] for w in hit); y1 = max(w[2] + w[4] for w in hit)
-                x, y = (x0 + x1) // 2, (y0 + y1) // 2
+                x, y = (x0 + x1) // 2, (y0 + y1) // 2 + below
                 subprocess.run(["xdotool", "mousemove", str(x), str(y), "click", "1"], check=True)
                 print(f"clicked '{args[0]}' at {x},{y}")
                 return 0

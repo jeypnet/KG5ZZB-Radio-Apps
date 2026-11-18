@@ -69,7 +69,7 @@ echo "== 1. First start: asks where you are"
 start first
 alive first-start
 ocr has "Where are you listening from"
-ocr tap "Type your town"
+ocr tap --last --below 44 "Where are you listening from"
 xdotool type --delay 100 Chicago
 sleep 5; shot typed-city
 ocr tap --last "Chicago"
