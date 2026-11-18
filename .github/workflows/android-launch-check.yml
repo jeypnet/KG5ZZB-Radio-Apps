@@ -1,0 +1,53 @@
+name: Android launch check
+
+# Started by hand only. Installs a published Android APK on the Android emulator, starts it
+# and saves the crash log (logcat) and a screenshot.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL of the APK to test"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  launch:
+    name: Android ${{ matrix.api }}
+    strategy:
+      fail-fast: false
+      matrix:
+        api: [34, 35, 36]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Download the APK
+        run: curl -sSL -o app.apk "${{ inputs.url }}"
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api }}
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          script: |
+            adb install -r app.apk
+            adb logcat -c
+            adb shell monkey -p com.kg5zzb.airband -c android.intent.category.LAUNCHER 1
+            sleep 25
+            adb exec-out screencap -p > screen-${{ matrix.api }}.png
+            adb logcat -d > logcat-${{ matrix.api }}.txt
+            grep -n -A40 -E "FATAL EXCEPTION|AndroidRuntime|monodroid|DOTNET" logcat-${{ matrix.api }}.txt | head -150 || true
+            adb shell pidof com.kg5zzb.airband && echo "APP RUNNING" || echo "APP NOT RUNNING"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: android-${{ matrix.api }}
+          retention-days: 1
+          path: |
+            screen-*.png
+            logcat-*.txt
