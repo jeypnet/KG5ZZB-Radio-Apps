@@ -1,0 +1,57 @@
+name: Linux launch check
+
+# Started by hand only. Downloads the Linux release and tests it like a new user on several
+# Linux distributions: first start, city, test sound, demo with sound, every screen, restart,
+# and the free basic version. Saves screenshots and the app log. Fails on any problem.
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to test (a draft release in this repository works too)"
+        required: true
+        default: airband-v1.0.4
+
+permissions:
+  contents: write
+
+jobs:
+  linux:
+    name: ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: ubuntu-22.04, runner: ubuntu-22.04, image: "" }
+          - { name: ubuntu-24.04, runner: ubuntu-24.04, image: "" }
+          - { name: debian-12, runner: ubuntu-latest, image: "debian:12" }
+          - { name: fedora-41, runner: ubuntu-latest, image: "fedora:41" }
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Download the release file
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          gh release download "$TAG" -R "$GITHUB_REPOSITORY" --pattern "*linux-x64.tar.gz" --output app.tar.gz
+          want=$(gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json assets --jq '.assets[] | select(.name|endswith("linux-x64.tar.gz")) | .digest')
+          got="sha256:$(sha256sum app.tar.gz | cut -d' ' -f1)"
+          echo "release file: $want"
+          echo "downloaded:   $got"
+          [ -z "$want" ] || [ "$want" = "$got" ]
+      - name: Test like a new user
+        env:
+          IMAGE: ${{ matrix.image }}
+          NAME: ${{ matrix.name }}
+        run: |
+          if [ -n "$IMAGE" ]; then
+            docker run --rm -v "$PWD:/w" -w /w "$IMAGE" bash .github/linux-check/test.sh app.tar.gz "$NAME"
+          else
+            bash .github/linux-check/test.sh app.tar.gz "$NAME"
+          fi
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: linux-${{ matrix.name }}
+          retention-days: 3
+          path: out-*
