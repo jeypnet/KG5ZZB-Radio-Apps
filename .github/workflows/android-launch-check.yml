@@ -44,7 +44,8 @@ jobs:
           xml = subprocess.run(["adb", "shell", "cat", "/sdcard/ui.xml"], capture_output=True, text=True).stdout
           for text in sys.argv[1:]:
               for m in re.finditer(r'<node [^>]*?text="([^"]*)"[^>]*?bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', xml):
-                  if m.group(1).strip().lower() == text.lower():
+                  t = m.group(1).strip().lower()
+                  if (t.find(text[1:].lower()) >= 0) if text.startswith("~") else (t == text.lower()):
                       x = (int(m.group(2)) + int(m.group(4))) // 2
                       y = (int(m.group(3)) + int(m.group(5))) // 2
                       subprocess.run(["adb", "shell", "input", "tap", str(x), str(y)])
@@ -79,7 +80,14 @@ jobs:
             adb shell monkey -p com.kg5zzb.airband -c android.intent.category.LAUNCHER 1
             sleep 15
             ./check.sh 1-start
-            python3 tap.py "Allow" "While using the app" "OK" || true
+            python3 tap.py "Search for a city"
+            sleep 2
+            python3 tap.py "Or type a city" || true
+            adb shell input text Chicago
+            sleep 3
+            python3 tap.py "~Chicago"
+            sleep 5
+            ./check.sh 1b-city-chosen
             python3 tap.py "Try the demo"
             sleep 30
             ./check.sh 2-demo-listen
@@ -97,6 +105,16 @@ jobs:
             adb shell monkey -p com.kg5zzb.airband -c android.intent.category.LAUNCHER 1
             sleep 10
             ./check.sh 6-reopen
+            adb shell pm grant com.kg5zzb.airband android.permission.ACCESS_COARSE_LOCATION || true
+            adb shell pm grant com.kg5zzb.airband android.permission.ACCESS_FINE_LOCATION || true
+            adb emu geo fix -95.36 29.76
+            python3 tap.py "⋮"
+            sleep 2
+            python3 tap.py "Change location"
+            sleep 2
+            python3 tap.py "~Use my location"
+            sleep 8
+            ./check.sh 7-my-location
             adb logcat -d > logcat-$API.txt
             ! grep -q "FATAL EXCEPTION" logcat-$API.txt
       - uses: actions/upload-artifact@v7
