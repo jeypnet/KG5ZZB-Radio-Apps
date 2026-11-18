@@ -55,6 +55,14 @@ jobs:
           print(re.findall(r'text="([^"]+)"', xml))
           sys.exit(1)
           EOF
+          cat > absent.py <<'EOF'
+          import subprocess, sys
+          subprocess.run(["adb", "shell", "uiautomator", "dump", "/sdcard/ui.xml"], capture_output=True)
+          xml = subprocess.run(["adb", "shell", "cat", "/sdcard/ui.xml"], capture_output=True, text=True).stdout
+          bad = [t for t in sys.argv[1:] if t.lower() in xml.lower()]
+          print(("FAIL: shown: " + ", ".join(bad)) if bad else "OK: not shown: " + ", ".join(sys.argv[1:]))
+          sys.exit(1 if bad else 0)
+          EOF
           cat > check.sh <<'EOF'
           #!/bin/bash
           # $1 = step name. Screenshot, then fail if the app is gone.
@@ -97,6 +105,7 @@ jobs:
             python3 tap.py "Messages"
             sleep 15
             ./check.sh 4-messages
+            python3 absent.py "in the full version" "Get the full version"
             python3 tap.py "Listen"
             sleep 10
             ./check.sh 5-listen-again
