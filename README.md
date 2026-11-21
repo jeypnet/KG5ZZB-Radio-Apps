@@ -8,11 +8,11 @@ all from your own antenna, offline, in one app.
 
 <br>
 
-[![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-windows-x64.zip)
+[![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.5/KG5ZZB-SDR-Airband-Receiver-1.0.5-windows-x64.zip)
 [![macOS](https://img.shields.io/badge/⬇_macOS-Apple_silicon_·_Intel-333?style=for-the-badge&logo=apple)](#-downloads-for-every-system)
 [![Linux](https://img.shields.io/badge/⬇_Linux-64--bit-333?style=for-the-badge&logo=linux&logoColor=white)](#-downloads-for-every-system)
 <br>
-**Free download** · Windows · macOS · Linux · Android phones, tablets & TV · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.4)
+**Free download** · Windows · macOS · Linux · Android phones, tablets & TV · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.5)
 
 ✅ **Works with RTL-SDR Blog V2, V3 and V4, Nooelec NESDR** and every RTL-SDR with an R820T, R820T2, R828D or R860 tuner · [all receivers](#-compatible-receivers)
 
@@ -102,20 +102,19 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 - **🕒 Nothing gets lost:** planes and messages stay for 30 minutes when you switch screens.
 - **⚙ Optimize:** tests every gain setting with your antenna and keeps the best one.
 - **📻 RTL-SDR, SDRplay and Airspy:** RTL-SDR dongles with R820T/R820T2/R828D/R860 tuners, plus SDRplay RSP1A/1B/2/duo/dx and Airspy R2/Mini (beta).
-- **▶ Try it without a dongle:** the built-in demo plays realistic radio conversations on your local channels and shows planes and their messages around your city.
 
 ### ⬇ Downloads for every system
 
 | System | Version | Download |
 |---|---|---|
-| 🪟 **Windows 10 / 11** (64-bit) | **1.0.4** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.4-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-windows-x64.zip)** |
-| 🍎 **macOS** 12+, Apple silicon (M1–M4) | **1.0.4** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.4-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-macos-arm64.zip)** |
-| 🍎 **macOS** 12+, Intel | **1.0.4** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.4-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-macos-x64.zip)** |
-| 🐧 **Linux** 64-bit, with a desktop | **1.0.4** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.4-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.4/KG5ZZB-SDR-Airband-Receiver-1.0.4-linux-x64.tar.gz)** |
-| 📱📺 **Android** 8.0+: phone, tablet or Android TV, with USB | **1.0.5** · free | **[KG5ZZB-Airband-Android-1.0.5.apk](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-android-v1.0.5/KG5ZZB-Airband-Android-1.0.5.apk)** |
+| 🪟 **Windows 10 / 11** (64-bit) | **1.0.5** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.5-windows-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.5/KG5ZZB-SDR-Airband-Receiver-1.0.5-windows-x64.zip)** |
+| 🍎 **macOS** 12+, Apple silicon (M1–M4) | **1.0.5** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.5-macos-arm64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.5/KG5ZZB-SDR-Airband-Receiver-1.0.5-macos-arm64.zip)** |
+| 🍎 **macOS** 12+, Intel | **1.0.5** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.5-macos-x64.zip](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.5/KG5ZZB-SDR-Airband-Receiver-1.0.5-macos-x64.zip)** |
+| 🐧 **Linux** 64-bit, with a desktop | **1.0.5** · free | **[KG5ZZB-SDR-Airband-Receiver-1.0.5-linux-x64.tar.gz](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-v1.0.5/KG5ZZB-SDR-Airband-Receiver-1.0.5-linux-x64.tar.gz)** |
+| 📱📺 **Android** 8.0+: phone, tablet or Android TV, with USB | **1.0.6** · free | **[KG5ZZB-Airband-Android-1.0.6.apk](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-android-v1.0.6/KG5ZZB-Airband-Android-1.0.6.apk)** |
 
 - **Windows:** unzip the whole folder and run `KG5ZZB-SDR-Airband-Receiver.exe`. A brand-new dongle: press **🔧 Set up dongle** once. If Windows says "Windows protected your PC", click **More info → Run anyway**.
-- **Mac:** run `brew install libusb` once, move the app to Applications and open it. The app is signed and notarized by Apple; macOS asks once to confirm it was downloaded from the internet: click **Open**.
+- **Mac:** move the app to Applications and open it. The app is signed and notarized by Apple; macOS asks once to confirm it was downloaded from the internet: click **Open**.
 - **Linux:** copy the included udev rule once so your user can open the dongle; steps in `README-LINUX.txt` inside the archive.
 - **Android:** one app for phones, tablets (sideways layout) and Android TV / Google TV. Needs an RTL-SDR with an R820T, R820T2, R828D or R860 tuner and a USB OTG adapter; SDRplay and Airspy work on the desktop versions only. Every feature for the first 30 days; after that Listen and the plane map stay free. No internet permission: the app collects nothing. Install steps below.
 - **Free download.** The scanner and the plane map are free, for good. For the first 30 days every extra is switched on too; after that, CLEAR VOICE, HOLD, MONITOR, DELAY and plane messages are an optional upgrade inside the app.
@@ -123,11 +122,11 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 #### 📱 Installing on Android (about one minute, only the first time)
 Apps downloaded from a website instead of the Google Play Store need a few extra taps. This is Android's normal safety step for every such app.
 
-1. On the phone or tablet, tap **[KG5ZZB-Airband-Android-1.0.5.apk](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-android-v1.0.5/KG5ZZB-Airband-Android-1.0.5.apk)**. If the browser warns that the file might be harmful, tap **Download anyway**.
+1. On the phone or tablet, tap **[KG5ZZB-Airband-Android-1.0.6.apk](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/download/airband-android-v1.0.6/KG5ZZB-Airband-Android-1.0.6.apk)**. If the browser warns that the file might be harmful, tap **Download anyway**.
 2. When the download finishes, tap it (in the notification, or open **Files → Downloads** and tap the file).
 3. Android says your browser isn't allowed to install apps. Tap **Settings**, switch on **Allow from this source**, then tap the back arrow and tap **Install**.
 4. Google Play Protect may ask to scan the app. Tap **Scan app** and wait a few seconds (or tap **More details → Install anyway**). Then tap **Open**.
-5. In the app, tap **Use my location** (or **Search for a city**). No dongle yet? Tap **Try the demo**.
+5. In the app, tap **Use my location** (or **Search for a city**).
 6. Plug in the dongle with the USB OTG adapter. When Android asks whether **KG5ZZB Airband** may use the USB device, tap **OK**.
 
 Updating later: tap the new `.apk` and **Install**; steps 3 and 4 are usually not needed again and your settings stay.
