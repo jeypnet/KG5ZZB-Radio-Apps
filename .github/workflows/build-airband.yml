@@ -1,7 +1,7 @@
 name: Build Airband Receiver (macOS, Linux)
 
 # Started by hand only. Builds the free download edition for macOS and Linux, signs and
-# notarizes the macOS app, starts each app in demo mode on a real macOS / Linux machine
+# notarizes the macOS app, starts each app on a real macOS / Linux machine (no receiver attached)
 # and saves a screenshot.
 on:
   workflow_dispatch:
@@ -37,24 +37,21 @@ jobs:
           -p:DebugType=none -p:Edition=Trial -o out/linux
       - name: Noise filter library
         run: bash native/rnnoise/build.sh out/linux/librnnoise.so
-      - name: Smoke test (libusb found, demo runs, screenshot)
+      - name: Smoke test (libusb found, start screen, screenshot)
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq xvfb imagemagick libusb-1.0-0
           export DISPLAY=:99
           Xvfb :99 -screen 0 1400x900x24 &
           sleep 3
-          (timeout 20 out/linux/KG5ZZB-SDR-Airband-Receiver || true)
-          LOG=$(find "$HOME" -path "*KG5ZZB-SDR-Airband-Receiver/log.txt" 2>/dev/null | head -1)
-          grep -q "No receiver found" "$LOG"
-          ! grep -q "library is missing" "$LOG"
-          out/linux/KG5ZZB-SDR-Airband-Receiver --demo &
+          out/linux/KG5ZZB-SDR-Airband-Receiver &
           APP=$!
-          sleep 25
-          import -window root linux-demo.png
+          sleep 20
+          import -window root linux-start.png
           kill $APP || true
-          grep -q "Demo dongle" "$LOG"
-          ! grep -q "RNNoise library not found" "$LOG"
+          LOG=$(find "$HOME" -path "*KG5ZZB-SDR-Airband-Receiver/log.txt" 2>/dev/null | head -1)
+          grep -q "Waiting for your SDR dongle" "$LOG"
+          ! grep -q "library is missing" "$LOG"
       - name: Package
         run: |
           mkdir -p pkg/KG5ZZB-SDR-Airband-Receiver-linux-x64
@@ -68,7 +65,7 @@ jobs:
           retention-days: 1
           path: |
             KG5ZZB-SDR-Airband-Receiver-linux-x64.tar.gz
-            linux-demo.png
+            linux-start.png
 
   macos:
     name: macOS app
@@ -160,21 +157,17 @@ jobs:
             (cd pkg/$RID && ditto -c -k --sequesterRsrc . "../../KG5ZZB-SDR-Airband-Receiver-macos-$ARCH.zip")
           done
           rm "$RUNNER_TEMP/notary.p8"
-      - name: Smoke test (libusb found, demo runs, screenshot)
+      - name: Smoke test (libusb found, start screen, screenshot)
         run: |
           brew install libusb
           BIN="pkg/osx-arm64/KG5ZZB SDR Airband Receiver.app/Contents/MacOS/KG5ZZB-SDR-Airband-Receiver"
           "$BIN" &
-          APP=$!; sleep 20; kill $APP || true
-          LOG=$(find "$HOME" -path "*KG5ZZB-SDR-Airband-Receiver/log.txt" 2>/dev/null | head -1)
-          grep -q "No receiver found" "$LOG"
-          ! grep -q "library is missing" "$LOG"
-          "$BIN" --demo &
-          APP=$!; sleep 25
-          screencapture -x macos-demo.png || true
+          APP=$!; sleep 20
+          screencapture -x macos-start.png || true
           kill $APP || true
-          grep -q "Demo dongle" "$LOG"
-          ! grep -q "RNNoise library not found" "$LOG"
+          LOG=$(find "$HOME" -path "*KG5ZZB-SDR-Airband-Receiver/log.txt" 2>/dev/null | head -1)
+          grep -q "Waiting for your SDR dongle" "$LOG"
+          ! grep -q "library is missing" "$LOG"
       - uses: actions/upload-artifact@v7
         with:
           name: macos
@@ -182,4 +175,4 @@ jobs:
           path: |
             KG5ZZB-SDR-Airband-Receiver-macos-arm64.zip
             KG5ZZB-SDR-Airband-Receiver-macos-x64.zip
-            macos-demo.png
+            macos-start.png
