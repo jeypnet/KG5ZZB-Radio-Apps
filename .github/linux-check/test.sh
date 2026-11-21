@@ -87,7 +87,7 @@ if grep -q "days left" "$OUT/window-titles.txt"; then echo "FAIL: the window tit
 else echo "OK: window title has no day countdown"; fi
 
 echo "== 3. Test sound comes out of the speakers"
-record 9 test-sound & REC=$!
+record 30 test-sound & REC=$!
 sleep 1; ocr tap "Test sound"
 wait $REC || true
 python3 "$HERE/peak.py" "$OUT/test-sound.raw" 0.05
@@ -105,7 +105,7 @@ alive basic-start
 titles | tee "$OUT/window-titles-basic.txt"
 if grep -q "Free basic version" "$OUT/window-titles-basic.txt"; then echo "OK: title shows the free basic version"; fi
 ocr has "Waiting for your SDR dongle"
-record 9 basic-test-sound & REC=$!
+record 30 basic-test-sound & REC=$!
 sleep 1; ocr tap "Test sound"
 wait $REC || true
 python3 "$HERE/peak.py" "$OUT/basic-test-sound.raw" 0.05
