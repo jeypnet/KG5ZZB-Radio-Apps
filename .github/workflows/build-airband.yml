@@ -96,6 +96,7 @@ jobs:
               -p:DebugType=none -p:Edition=Trial -o out/$RID
             ARCHFLAG=$([ "$RID" = osx-arm64 ] && echo arm64 || echo x86_64)
             bash native/rnnoise/build.sh out/$RID/librnnoise.dylib -arch $ARCHFLAG
+            bash native/libusb/build-macos.sh out/$RID/libusb-1.0.0.dylib $ARCHFLAG
             APP="pkg/$RID/KG5ZZB SDR Airband Receiver.app"
             mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
             cp -R out/$RID/. "$APP/Contents/MacOS/"
@@ -159,7 +160,8 @@ jobs:
           rm "$RUNNER_TEMP/notary.p8"
       - name: Smoke test (libusb found, start screen, screenshot)
         run: |
-          brew install libusb
+          # The app ships its own libusb; make sure no Homebrew copy is used instead.
+          brew uninstall --ignore-dependencies libusb 2>/dev/null || true
           BIN="pkg/osx-arm64/KG5ZZB SDR Airband Receiver.app/Contents/MacOS/KG5ZZB-SDR-Airband-Receiver"
           "$BIN" &
           APP=$!; sleep 20
