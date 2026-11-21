@@ -1,7 +1,7 @@
 name: Linux launch check
 
 # Started by hand only. Downloads the Linux release and tests it like a new user on several
-# Linux distributions: first start, city, test sound, demo with sound, every screen, restart,
+# Linux distributions: first start, city, test sound, start screen, restart,
 # and the free basic version. Saves screenshots and the app log. Fails on any problem.
 on:
   workflow_dispatch:

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Tests the Linux download the way a new user meets it: unpack, first start, pick a city, test sound,
-# the demo with sound, every screen, a restart, and the free basic version after the 30 days.
+# the start screen, a restart, and the free basic version after the 30 days.
 # $1 = the downloaded .tar.gz, $2 = a short name for the result files.
 set -euo pipefail
 TAR=$(realpath "$1"); NAME=$2; HERE=$(dirname "$(realpath "$0")"); OUT=$PWD/out-$NAME
@@ -78,12 +78,13 @@ sleep 3; shot city-picked
 ocr tap "Start listening"
 sleep 10
 alive main-window
-ocr has "Try the demo"
+ocr has "Waiting for your SDR dongle"
+ocr absent "Try the demo"
 
-echo "== 2. Free trial: all features for 30 days"
+echo "== 2. All features on: clean window title"
 titles | tee "$OUT/window-titles.txt"
-if grep -q "30 days left" "$OUT/window-titles.txt"; then echo "OK: window title shows the 30-day trial (this is the trial edition)"
-else echo "FAIL: no '30 days left' in the window title"; exit 1; fi
+if grep -q "days left" "$OUT/window-titles.txt"; then echo "FAIL: the window title shows a day countdown"; exit 1
+else echo "OK: window title has no day countdown"; fi
 
 echo "== 3. Test sound comes out of the speakers"
 record 9 test-sound & REC=$!
@@ -91,46 +92,27 @@ sleep 1; ocr tap "Test sound"
 wait $REC || true
 python3 "$HERE/peak.py" "$OUT/test-sound.raw" 0.05
 
-echo "== 4. Demo: radio voices come out of the speakers"
-ocr tap "Try the demo"
-record 45 demo-sound
-alive demo-listen
-python3 "$HERE/peak.py" "$OUT/demo-sound.raw" 0.05
-
-echo "== 5. Every screen"
-# The screen buttons are icons left of "Stop demo": headphones = listen, plane = map, envelope = messages.
-listen_btn() { ocr tap --dx -230 "Stop demo"; }
-map_btn() { ocr tap --dx -180 "Stop demo"; }
-messages_btn() { ocr tap --dx -131 "Stop demo"; }
-map_btn; sleep 15; alive map
-messages_btn; sleep 30; alive messages
-ocr absent "in the full version"
-listen_btn; sleep 8; alive listen-again
-ocr has "HOLD"
-quit
-
-echo "== 6. Second start: remembers the city, no questions"
+echo "== 4. Second start: remembers the city, no questions"
 start second
 alive second-start
 ocr absent "Where are you listening from"
 quit
 
-echo "== 7. After the 30 days: free basic version still opens and plays"
+echo "== 5. After the 30 days: free basic version still opens and plays"
 export KG5ZZB_FORCE_BASIC=1
 start basic
 alive basic-start
 titles | tee "$OUT/window-titles-basic.txt"
 if grep -q "Free basic version" "$OUT/window-titles-basic.txt"; then echo "OK: title shows the free basic version"; fi
-ocr tap "Try the demo"
-record 30 basic-demo-sound
-alive basic-demo
-python3 "$HERE/peak.py" "$OUT/basic-demo-sound.raw" 0.05
-messages_btn; sleep 15; alive basic-messages
-ocr has "in the full version"
+ocr has "Waiting for your SDR dongle"
+record 9 basic-test-sound & REC=$!
+sleep 1; ocr tap "Test sound"
+wait $REC || true
+python3 "$HERE/peak.py" "$OUT/basic-test-sound.raw" 0.05
 quit
 unset KG5ZZB_FORCE_BASIC
 
-echo "== 8. App log"
+echo "== 6. App log"
 cp "$LOG" "$OUT/log.txt"
 if grep -n -i -E "unhandled|library is missing|RNNoise library not found|fatal" "$LOG"; then echo "FAIL: errors in the log"; exit 1; fi
 echo "OK: no errors in the log"

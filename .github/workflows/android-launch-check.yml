@@ -96,7 +96,8 @@ jobs:
             python3 tap.py "Chicago, Illinois, United States"
             sleep 5
             ./check.sh 1b-city-chosen
-            python3 tap.py "Try the demo"
+            # The built-in demo has no button; the check starts it with an intent extra.
+            adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -p com.kg5zzb.airband --ez demo true
             sleep 30
             ./check.sh 2-demo-listen
             python3 tap.py "Map"
