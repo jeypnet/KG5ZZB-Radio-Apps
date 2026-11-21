@@ -81,10 +81,10 @@ alive main-window
 ocr has "Waiting for your SDR dongle"
 ocr absent "Try the demo"
 
-echo "== 2. Free trial: all features for 30 days"
+echo "== 2. All features on: clean window title"
 titles | tee "$OUT/window-titles.txt"
-if grep -q "30 days left" "$OUT/window-titles.txt"; then echo "OK: window title shows the 30-day trial (this is the trial edition)"
-else echo "FAIL: no '30 days left' in the window title"; exit 1; fi
+if grep -q "days left" "$OUT/window-titles.txt"; then echo "FAIL: the window title shows a day countdown"; exit 1
+else echo "OK: window title has no day countdown"; fi
 
 echo "== 3. Test sound comes out of the speakers"
 record 9 test-sound & REC=$!
