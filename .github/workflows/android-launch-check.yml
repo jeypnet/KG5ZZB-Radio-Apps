@@ -97,7 +97,8 @@ jobs:
             sleep 5
             ./check.sh 1b-city-chosen
             # The built-in demo has no button; the check starts it with an intent extra.
-            adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -p com.kg5zzb.airband --ez demo true
+            adb shell am start -n "$(adb shell cmd package resolve-activity --brief com.kg5zzb.airband | tail -1 | tr -d '
+')" --ez demo true
             sleep 30
             ./check.sh 2-demo-listen
             python3 tap.py "Map"
