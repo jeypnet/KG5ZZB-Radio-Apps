@@ -8,7 +8,7 @@ all from your own antenna, offline, in one app.
 
 <br>
 
-[![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://kg5zzb.jeyp.net/download?os=windows)
+[![Download the latest Airband Receiver for Windows](https://img.shields.io/badge/⬇_Download-Latest_version_·_Windows-0369A1?style=for-the-badge)](https://kg5zzb.jeyp.net/download?os=windows)
 [![macOS](https://img.shields.io/badge/⬇_macOS-Apple_silicon_·_Intel-333?style=for-the-badge&logo=apple)](https://kg5zzb.jeyp.net/download)
 [![Linux](https://img.shields.io/badge/⬇_Linux-64--bit-333?style=for-the-badge&logo=linux&logoColor=white)](https://kg5zzb.jeyp.net/download)
 <br><br>
@@ -97,32 +97,27 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 - **📶 Signal strength on every message,** and message text you can select and copy.
 - **🛡 Automatic protection against very strong nearby stations,** with a plain-words tip when only hardware can help.
 
-### New in 1.0.6
-- **🎙 Clearer voice, no bang:** the sound fades in smoothly when someone starts talking, and CLEAR VOICE now also turns down electrical spike noise. Thanks to great feedback from our listeners.
-- **✉ Plane messages anyone can read:** a short key explains the arrows and badges, position reports say how far and how high the plane is, airports show their name and city, and times are in your own clock.
-- **🕒 See how fresh the data is:** every message, plane and map label shows when it was heard ("now", "12 s ago").
-- **🌍 More messages read worldwide:** more than 1,100 airline names and more position-report formats.
-
-[![Get new versions by email: sign up free](docs/images/email-updates-signup.png)](https://kg5zzb.jeyp.net/updates?from=github)
-
-### New in 1.0
+### Everything it does
+- **📻 A real scanner, made simple:** SCAN, HOLD, SKIP, MONITOR and DELAY work like a handheld scanner.
+- **★ Favourites and BUSY channels:** the app learns which channels talk the most, keeps them right after your favourites and gives them priority when two talk at once.
+- **Airport buttons:** scan or skip a whole airport, Approach & Center, or the small airports (off by default) in one click.
+- **Complete channel lists:** FAA data in the US and about 11,000 airports in 236 countries worldwide, "Scan ★ starred + BUSY only", optional recorded weather, and a list that never jumps while you use it.
+- **🎙 Clear voice, no bang:** the sound fades in smoothly when someone starts talking, and CLEAR VOICE also turns down electrical spike noise.
+- **✉ Plane messages anyone can read:** a short key explains the arrows and badges, position reports say how far and how high the plane is, airports show their name and city, times are in your own clock, and more than 1,100 airline names are built in.
+- **🕒 See how fresh the data is:** every message, plane and map label shows when it was heard ("now", "12 s ago"); planes and messages stay for 30 minutes when you switch screens.
+- **✈ Planes your way:** airline badges, a colour and an icon for each kind of aircraft (airliner, private jet, small plane, helicopter, military), radar-style labels, dotted paths for the planes you follow.
+- **📍 Your exact spot:** your town, coordinates from Google Maps, or your grid locator.
+- **⚙ Optimize:** tests every gain setting with your antenna and keeps the best one.
 - **🌐 Four languages:** English, Español, 中文 and 日本語. The app picks your computer's language; switch any time with the 🌐 button.
 
   | Español | 中文 | 日本語 |
   |:---:|:---:|:---:|
   | [![Español](docs/images/listen-es.png)](docs/images/listen-es.png) | [![中文](docs/images/listen-zh.png)](docs/images/listen-zh.png) | [![日本語](docs/images/listen-ja.png)](docs/images/listen-ja.png) |
-- **★ Favourites and BUSY channels:** the app learns which channels talk the most, keeps them right after your favourites and gives them priority when two talk at once.
-- **Airport buttons:** scan or skip a whole airport, Approach & Center, or the small airports (off by default) in one click.
-- **Complete US channel lists** from FAA data, "Scan ★ starred + BUSY only", optional recorded weather, and a list that never jumps while you use it.
-- **Your exact spot:** your town, coordinates from Google Maps, or your grid locator.
-- **macOS and Linux** get everything the Windows app has.
+- **📻 RTL-SDR, SDRplay and Airspy:** RTL-SDR dongles with R820T/R820T2/R828D/R860 tuners, plus SDRplay RSP1A/1B/2/duo/dx and Airspy R2/Mini (beta). Windows, macOS and Linux get the same features.
 
-### Everything else
-- **📻 A real scanner, made simple:** SCAN, HOLD, SKIP, MONITOR and DELAY work like a handheld scanner.
-- **✈ Planes your way:** airline badges, a colour and an icon for each kind of aircraft (airliner, private jet, small plane, helicopter, military), radar-style labels, dotted paths for the planes you follow.
-- **🕒 Nothing gets lost:** planes and messages stay for 30 minutes when you switch screens.
-- **⚙ Optimize:** tests every gain setting with your antenna and keeps the best one.
-- **📻 RTL-SDR, SDRplay and Airspy:** RTL-SDR dongles with R820T/R820T2/R828D/R860 tuners, plus SDRplay RSP1A/1B/2/duo/dx and Airspy R2/Mini (beta).
+Earlier versions: see the [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
+
+[![Get new versions by email: sign up free](docs/images/email-updates-signup.png)](https://kg5zzb.jeyp.net/updates?from=github)
 
 ### ⬇ Downloads for every system
 
