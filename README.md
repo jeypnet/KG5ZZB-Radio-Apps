@@ -11,8 +11,11 @@ all from your own antenna, offline, in one app.
 [![Download Airband Receiver 1.0 for Windows](https://img.shields.io/badge/⬇_Download-Airband_Receiver_1.0_·_Windows-0369A1?style=for-the-badge)](https://kg5zzb.jeyp.net/download?os=windows)
 [![macOS](https://img.shields.io/badge/⬇_macOS-Apple_silicon_·_Intel-333?style=for-the-badge&logo=apple)](https://kg5zzb.jeyp.net/download)
 [![Linux](https://img.shields.io/badge/⬇_Linux-64--bit-333?style=for-the-badge&logo=linux&logoColor=white)](https://kg5zzb.jeyp.net/download)
-<br>
-[![Get updates by email](https://img.shields.io/badge/📬_Get_updates_by_email-16A34A?style=for-the-badge)](https://kg5zzb.jeyp.net/updates?from=github) [![Support](https://img.shields.io/badge/💬_Report_a_problem-555?style=for-the-badge)](https://kg5zzb.jeyp.net/support) [![Connect on LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/jeypnet/)
+<br><br>
+
+<a href="https://kg5zzb.jeyp.net/updates?from=github"><img src="docs/images/email-updates-signup.png" alt="Get new versions by email: sign up free" width="100%"></a>
+
+[![Support](https://img.shields.io/badge/💬_Report_a_problem-555?style=for-the-badge)](https://kg5zzb.jeyp.net/support) [![Connect on LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/jeypnet/)
 <br>
 **Free download** · Windows · macOS · Linux · Android phones, tablets & TV · English · Español · 中文 · 日本語 · no install · [release notes](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/tag/airband-v1.0.6)
 
@@ -86,6 +89,14 @@ One button makes pilots easier to understand. It was tuned by ear on real pilot 
 | [![Scanner and map side by side](docs/images/map-voice.png)](docs/images/map-voice.png) | [![Map and messages side by side](docs/images/map-messages.png)](docs/images/map-messages.png) |
 | The scanner on the left, the planes on the right. | The planes and their messages, both live. |
 
+### New in 1.0.6
+- **🎙 Clearer voice, no bang:** the sound fades in smoothly when someone starts talking, and CLEAR VOICE now also turns down electrical spike noise. Thanks to great feedback from our listeners.
+- **✉ Plane messages anyone can read:** a short key explains the arrows and badges, position reports say how far and how high the plane is, airports show their name and city, and times are in your own clock.
+- **🕒 See how fresh the data is:** every message, plane and map label shows when it was heard ("now", "12 s ago").
+- **🌍 More messages read worldwide:** more than 1,100 airline names and more position-report formats.
+
+[![Get new versions by email: sign up free](docs/images/email-updates-signup.png)](https://kg5zzb.jeyp.net/updates?from=github)
+
 ### New in 1.0
 - **🌐 Four languages:** English, Español, 中文 and 日本語. The app picks your computer's language; switch any time with the 🌐 button.
 
@@ -136,6 +147,8 @@ Updating later: tap the new `.apk` and **Install**; steps 3 and 4 are usually no
 
 All versions: [Releases](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases).
 
+[![Get new versions by email: sign up free](docs/images/email-updates-signup.png)](https://kg5zzb.jeyp.net/updates?from=github)
+
 ### 📻 Compatible receivers
 
 | Receiver | Models | Notes |
@@ -182,6 +195,11 @@ Shortwave is full of hiss, whistles, buzz and clicks, and a desktop PC next to t
 ## 🔌 Hardware
 - **Airband Receiver:** see [Compatible receivers](#-compatible-receivers).
 - **Shortwave Receiver:** an RTL-SDR dongle with an R820T/R820T2 tuner and a long wire antenna.
+
+## 📬 Stay in the loop
+New versions, fixes and new KG5ZZB radio apps go out by email first. Social media may not show you every post; email always arrives.
+
+[![Get new versions by email: sign up free](docs/images/email-updates-signup.png)](https://kg5zzb.jeyp.net/updates?from=github)
 
 ## 💬 Help
 Found a problem or have a question? Use the **[support form](https://kg5zzb.jeyp.net/support)**: you can attach a recording or screenshot, and it stays private. New versions by email: **[sign up here](https://kg5zzb.jeyp.net/updates?from=github)**.
