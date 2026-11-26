@@ -23,7 +23,7 @@ all from your own antenna, offline, in one app.
 
 [![Shortwave Receiver: coming soon](https://img.shields.io/badge/Shortwave_Receiver-coming_soon-555?style=for-the-badge)](#-kg5zzb-shortwave-receiver-coming-soon)
 
-[![All releases](https://img.shields.io/github/v/release/jeypnet/KG5ZZB-Radio-Apps?label=latest&color=0369A1)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)
+[![All releases](docs/images/latest-version.svg)](https://github.com/jeypnet/KG5ZZB-Radio-Apps/releases/latest)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4?logo=windows&logoColor=white)
 ![macOS](https://img.shields.io/badge/macOS-12%2B-000000?logo=apple&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-64--bit-FCC624?logo=linux&logoColor=black)
