@@ -38,6 +38,8 @@ all from your own antenna, offline, in one app.
 
 ## ✈ KG5ZZB SDR Airband Receiver
 
+**Made just for airband:** a real scanner, the live plane map and plane messages in plain English, in one simple app. No plugins, no extra programs.
+
 Three big buttons, three things to do:
 
 | 🎧 **LISTEN** | ✈ **MAP** | ✉ **MESSAGES** |
