@@ -68,7 +68,7 @@ Pilots and controllers talk in short bursts, often only two or three seconds. A 
 | ✅ **Supported** | **RTL-SDR Blog V2 and V3** (R820T2) · **RTL-SDR Blog V4** (R828D) · Nooelec NESDR SMArt v4 / v5 · NESDR Mini 2+ · NESDR Nano 2+ / 3 · any RTL2832U dongle with an **R820T, R820T2, R828D or R860** tuner |
 | ❌ **Not supported** | Very old dongles with an E4000, FC0012, FC0013 or FC2580 tuner (for example the NESDR XTR) |
 
-The app also works with **SDRplay** and **Airspy** receivers (beta). See [Compatible receivers](../README.md#-compatible-receivers).
+The app also works with **SDRplay** receivers, **Airspy R2 / Mini** (beta) and **HackRF One** (beta). See [Compatible receivers](../README.md#-compatible-receivers).
 
 ## 📏 How we measured
 
